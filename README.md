@@ -1,92 +1,173 @@
 # NetFic Solutions - Sitio Web Corporativo
 
-Este es un sitio web corporativo completo para NetFic Solutions, desarrollado con Astro, TailwindCSS y AlpineJS. El sitio incluye múltiples secciones y páginas con diseño responsive.
+Sitio web corporativo profesional para NetFic Solutions, empresa especializada en soluciones tecnológicas integrales en Costa Rica. Desarrollado con tecnologías modernas como Astro, TailwindCSS y AlpineJS.
 
-![NetFic Solutions Preview](https://example.com/preview.jpg)
+## 🏢 Acerca de NetFic Solutions
 
-## 🚀 Características
+NetFic Solutions es una empresa costarricense especializada en:
+- Redes Inalámbricas y Cableado Estructurado
+- Videovigilancia CCTV y Sistemas de Seguridad
+- Fibra Óptica e Instalaciones Eléctricas
+- Aires Acondicionados y Climatización
+- Venta de Equipos Tecnológicos
 
-- **Diseño Responsive**: Adaptado a cualquier tamaño de pantalla y dispositivo
-- **Navegación Intuitiva**: Menú de navegación con soporte para dispositivos móviles
-- **Secciones Principales**:
-  - Página de inicio con Hero Section
-  - Sección de Servicios con grid de tarjetas y páginas detalladas para cada servicio
-  - Sección Quienes Somos con información corporativa
-  - Carrusel de Proyectos con Alpine.js
-  - Formulario de Contacto funcional
-  - Sección de Testimonios de clientes
-  - FAQs con Alpine.js para las preguntas más frecuentes
-- **Páginas de Servicios Detalladas**: Información completa para cada servicio ofrecido
-- **Optimizado para SEO**: Metadatos y estructura semántica
-- **Alto Rendimiento**: Construido con Astro para una carga rápida
+## 🚀 Características del Sitio
 
-## 🧰 Tecnologías
+- **Diseño Responsive**: Completamente adaptado para móviles, tablets y desktop
+- **Navegación Inteligente**: Navbar transparente que cambia a sólido al hacer scroll
+- **Hero Section Moderno**: Con imagen de fondo personalizada y efectos visuales
+- **Servicios Interactivos**: Grid de servicios con páginas detalladas individuales
+- **Proyectos Filtrados**: Sistema de filtrado con modales y animaciones
+- **Formulario de Contacto**: Integrado con EmailJS para envío directo de emails
+- **SEO Optimizado**: Metadatos y estructura semántica correcta
+- **Alto Rendimiento**: Sitio estático optimizado para carga rápida
 
-- [Astro](https://astro.build/) - Framework web moderno
-- [TailwindCSS](https://tailwindcss.com/) - Framework CSS utilitario
-- [Alpine.js](https://alpinejs.dev/) - Framework JavaScript minimalista
-- Plugins de Tailwind para formularios y aspect-ratio
+## 🧰 Tecnologías Utilizadas
+
+- **[Astro](https://astro.build/)** - Framework web moderno para sitios estáticos
+- **[TailwindCSS](https://tailwindcss.com/)** - Framework CSS utilitario
+- **[AlpineJS](https://alpinejs.dev/)** - JavaScript reactivo ligero
+- **[EmailJS](https://www.emailjs.com/)** - Servicio de envío de emails cliente-side
+- **TypeScript** - Tipado estático para JavaScript
 
 ## 📁 Estructura del Proyecto
 
 ```text
 /
-├── public/
-│   └── favicon.svg
+├── public/                    # Archivos estáticos públicos
+│   ├── favicon.svg
+│   ├── bg-main.png           # Imagen de fondo principal
+│   ├── netfic-logo-xl.svg    # Logo principal
+│   └── [otras imágenes]      # Imágenes de servicios y proyectos
 ├── src/
 │   ├── components/
-│   │   ├── About.astro         # Componente "Quienes Somos"
-│   │   ├── Contact.astro       # Componente de Formulario de Contacto
-│   │   ├── FAQ.astro           # Componente de preguntas frecuentes
-│   │   ├── Footer.astro        # Componente del pie de página
-│   │   ├── header.astro        # Navbar principal responsive
-│   │   ├── Projects.astro      # Carrusel de proyectos
-│   │   ├── ServiceDetail.astro # Componente de detalle de servicio
-│   │   ├── Services.astro      # Grid de servicios
-│   │   └── Testimonials.astro  # Componente de testimonios de clientes
+│   │   ├── About.astro       # Sección "Quienes Somos"
+│   │   ├── Contact.astro     # Formulario de contacto con EmailJS
+│   │   ├── Footer.astro      # Pie de página con enlaces y contacto
+│   │   ├── header.astro      # Navbar responsive con scroll effects
+│   │   ├── Projects.astro    # Grid de proyectos con filtros y modales
+│   │   └── Services.astro    # Grid de servicios
 │   ├── layouts/
-│   │   └── Layout.astro        # Layout principal
+│   │   └── Layout.astro      # Layout base con configuración global
 │   ├── pages/
-│   │   ├── api/
-│   │   │   └── contact.js      # API endpoint para el formulario de contacto
-│   │   ├── index.astro         # Página principal
-│   │   ├── servicios.astro     # Página de servicios
-│   │   ├── servicios/          # Páginas detalladas de servicios
-│   │   │   ├── aires-acondicionados.astro
-│   │   │   ├── cableado-estructurado.astro
-│   │   │   ├── centrales-telefonicas.astro
-│   │   │   ├── fibra-optica.astro
-│   │   │   ├── instalaciones-electricas.astro
-│   │   │   ├── redes-inalambricas.astro
-│   │   │   ├── venta-equipos.astro
-│   │   │   └── videovigilancia.astro
-│   │   ├── quienes-somos.astro # Página "Quienes Somos"
-│   │   └── contacto.astro      # Página de contacto
-│   ├── scripts/
-│   │   └── alpine.js           # Configuración de Alpine.js
-│   └── styles/
-│       └── global.css          # Estilos globales
+│   │   ├── index.astro       # Página principal con hero section
+│   │   ├── contacto.astro    # Página de contacto dedicada
+│   │   ├── servicios.astro   # Página principal de servicios
+│   │   └── servicios/        # Páginas detalladas por servicio
+│   │       ├── aires-acondicionados.astro
+│   │       ├── cableado-estructurado.astro
+│   │       ├── fibra-optica.astro
+│   │       ├── redes-inalambricas.astro
+│   │       ├── videovigilancia.astro
+│   │       └── venta-equipos.astro
+│   └── layouts/
+│       └── Layout.astro
 └── package.json
 ```
 
-## 🧞 Comandos
+## 🛠️ Instalación y Desarrollo
 
-Todos los comandos se ejecutan desde la raíz del proyecto:
+### Prerrequisitos
+- Node.js 16+ 
+- npm o yarn
+
+### Comandos Disponibles
 
 | Comando                   | Acción                                            |
 | :------------------------ | :------------------------------------------------ |
 | `npm install`             | Instala las dependencias                          |
-| `npm run dev`             | Inicia el servidor local en `localhost:4321`      |
+| `npm run dev`             | Inicia el servidor de desarrollo en `localhost:4321` |
 | `npm run build`           | Construye la versión de producción en `./dist/`   |
 | `npm run preview`         | Vista previa local de la versión de producción    |
 
-## 🚀 Despliegue
+### Desarrollo Local
 
-Este sitio está optimizado para ser desplegado en plataformas como Netlify, Vercel o cualquier hosting que soporte aplicaciones web estáticas.
+1. Clona el repositorio
+```bash
+git clone [url-del-repositorio]
+cd netfic_web
+```
 
-## 💻 Desarrollo futuro
+2. Instala las dependencias
+```bash
+npm install
+```
 
-- Implementación de un blog corporativo
-- Panel de administración para gestionar contenidos
-- Optimización de rendimiento con carga perezosa de imágenes
-- Integración con CRM para seguimiento de leads
+3. Inicia el servidor de desarrollo
+```bash
+npm run dev
+```
+
+4. Abre tu navegador en `http://localhost:4321`
+
+## 🚀 Despliegue en Producción
+
+### Render (Recomendado para este proyecto)
+
+**Configuración para Static Site:**
+- **Build Command:** `npm install && npm run build`
+- **Publish Directory:** `dist`
+
+### Otras Plataformas
+
+El sitio es compatible con cualquier plataforma que soporte sitios estáticos:
+- Netlify
+- Vercel  
+- GitHub Pages
+- Cloudflare Pages
+
+## 📞 Configuración del Formulario de Contacto
+
+El formulario utiliza EmailJS con la siguiente configuración:
+- **Service ID:** `service_h3dqbeu`
+- **Template ID:** `template_7grjxkf`
+- **Public Key:** `LVq3js0LUNgcF7RfT`
+
+### Template Variables
+- `{{to_name}}` - Nombre del destinatario
+- `{{first_name}}` - Nombre del cliente
+- `{{last_name}}` - Apellido del cliente
+- `{{email}}` - Email del cliente
+- `{{phone}}` - Teléfono del cliente
+- `{{service}}` - Servicio de interés
+- `{{message}}` - Mensaje del cliente
+
+## 🎨 Características de Diseño
+
+### Navbar Inteligente
+- Transparente en la parte superior
+- Se vuelve sólido blanco al hacer scroll
+- Cambia colores de texto automáticamente
+- Menú móvil responsivo
+
+### Hero Section
+- Imagen de fondo personalizada (`bg-main.png`)
+- Texto posicionado a la derecha
+- Gradientes y efectos visuales modernos
+- Estadísticas y CTAs prominentes
+
+### Sistema de Proyectos
+- Filtrado por categorías con AlpineJS
+- Modales con detalles expandidos
+- Animaciones suaves y responsive
+
+## 📱 Información de Contacto
+
+- **Ubicación:** San Ramón, Alajuela, Costa Rica
+- **Teléfono:** +506 8508-2921
+- **Email:** info@netfic.com
+- **Horario:** Lun-Vie 9:00-18:00
+
+## 🔧 Desarrollo Futuro
+
+- [ ] Implementación de blog corporativo
+- [ ] Panel de administración para contenido
+- [ ] Optimización de imágenes con lazy loading
+- [ ] Integración con CRM
+- [ ] Analytics y métricas de conversión
+- [ ] Modo oscuro/claro
+- [ ] Multiidioma (Inglés/Español)
+
+## 📄 Licencia
+
+© 2024 NetFic Solutions. Todos los derechos reservados.
