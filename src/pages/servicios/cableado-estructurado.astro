@@ -1,0 +1,112 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ServiceDetail from "../../components/ServiceDetail.astro";
+---
+
+<Layout
+  title="Cableado Estructurado | NETFIC SOLUTIONS"
+  description="Diseño e instalación de sistemas de cableado estructurado para datos, voz y CCTV, cumpliendo con los estándares más exigentes del mercado."
+>
+  <!-- Hero Section -->
+  <div
+    class="relative pt-16 pb-24 flex content-center items-center justify-center"
+    style="min-height: 40vh;"
+  >
+    <div
+      class="absolute top-0 w-full h-full bg-center bg-cover"
+      style="background-image: url('/src/assets/cableado_estructurado-bg.png');"
+    >
+      <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"
+      ></span>
+    </div>
+    <div class="container relative mx-auto">
+      <div class="items-center flex flex-wrap">
+        <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+          <h1 class="text-white font-semibold text-5xl mb-2">
+            Cableado Estructurado
+          </h1>
+          <p class="mt-4 text-lg text-gray-200">
+            Infraestructura confiable para tus sistemas de comunicación
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Detail -->
+  <ServiceDetail
+    title="Cableado Estructurado"
+    description="En NetFic Solutions nos especializamos en el diseño e instalación de sistemas de cableado estructurado que cumplen con los estándares internacionales más exigentes. Nuestras soluciones abarcan instalaciones para redes de datos, sistemas de voz y circuitos cerrados de televisión (CCTV), garantizando una infraestructura robusta y escalable para el presente y futuro de tu negocio."
+    icon='<svg class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.39 48.39 0 01-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 01-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 00-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 01-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 00.657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 01-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 005.427-.63 48.05 48.05 0 00.582-4.717.532.532 0 00-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 00.658-.663 48.422 48.422 0 00-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 01-.61-.58v0z" /></svg>'
+    features={[
+      "Instalación de cables Cat 5e, Cat 6, Cat 6A y fibra óptica según necesidades",
+      "Diseño de gabinetes y racks para organización óptima de equipos",
+      "Certificación de puntos de red con equipos especializados",
+      "Instalación de bandejas y ductos para cableado horizontal y vertical",
+      "Etiquetado y documentación completa de la instalación",
+      "Mantenimiento preventivo y correctivo de sistemas existentes",
+    ]}
+    benefits={[
+      "Cumplimiento de estándares TIA/EIA para máxima calidad",
+      "Infraestructura confiable con mínimo tiempo de inactividad",
+      "Organización y documentación que facilita mantenimientos futuros",
+      "Alta velocidad de transmisión de datos sin interferencias",
+      "Flexibilidad para crecimiento futuro de la red",
+      "Garantía en materiales e instalación",
+    ]}
+    image="/src/assets/cableado_estructurado.png"
+  />
+
+  <!-- Related Services Section -->
+  <div class="py-12 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">
+        Servicios relacionados
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <a
+          href="/servicios/redes-inalambricas"
+          class="block hover:no-underline"
+        >
+          <div
+            class="bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Redes Inalámbricas
+            </h3>
+            <p class="text-gray-500">
+              Complementa tu infraestructura cableada con soluciones
+              inalámbricas de alto rendimiento.
+            </p>
+          </div>
+        </a>
+        <a href="/servicios/fibra-optica" class="block hover:no-underline">
+          <div
+            class="bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Redes de Fibra Óptica
+            </h3>
+            <p class="text-gray-500">
+              Implementa conectividad de alta velocidad para tus necesidades más
+              exigentes.
+            </p>
+          </div>
+        </a>
+        <a href="/servicios/videovigilancia" class="block hover:no-underline">
+          <div
+            class="bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Videovigilancia CCTV
+            </h3>
+            <p class="text-gray-500">
+              Integra tus sistemas de seguridad con el cableado estructurado
+              para una solución completa.
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

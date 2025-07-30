@@ -1,0 +1,249 @@
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300">
+	<!-- Subtle background overlay for better text visibility -->
+	<div id="navbar-overlay" class="absolute inset-0 bg-black/20 opacity-100 transition-opacity duration-300"></div>
+
+	<nav
+		class="relative w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between py-4"
+		aria-label="Navegación principal"
+	>
+		<div class="flex items-center">
+			<a href="/" class="flex items-center">
+				<span class="sr-only">NetFic</span>
+				<img
+					id="navbar-logo"
+					class="h-14 w-auto transition-all duration-300"
+					src="/src/assets/netfic-logo-xl.svg"
+					alt="Logo"
+				/>
+			</a>
+		</div>
+		<div class="flex md:hidden">
+			<button
+				type="button"
+				class="inline-flex items-center justify-center rounded-md p-2 text-white hover:text-blue-300 transition-colors duration-200"
+				id="mobile-menu-button"
+				aria-expanded="false"
+			>
+				<span class="sr-only">Abrir menú</span>
+				<svg
+					class="size-6"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="currentColor"
+					aria-hidden="true"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+				</svg>
+			</button>
+		</div>
+		<div class="hidden md:flex md:items-center md:gap-x-8">
+			<a
+				href="/"
+				class="text-base font-medium text-white hover:text-blue-300 transition-colors duration-200 relative group"
+			>
+				Inicio
+				<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+			</a>
+			<a
+				href="/servicios"
+				class="text-base font-medium text-white hover:text-blue-300 transition-colors duration-200 relative group"
+			>
+				Servicios
+				<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+			</a>
+			<a
+				href="/quienes-somos"
+				class="text-base font-medium text-white hover:text-blue-300 transition-colors duration-200 relative group"
+			>
+				Quienes Somos
+				<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+			</a>
+			<a
+				href="/contacto"
+				class="text-base font-medium text-white hover:text-blue-300 transition-colors duration-200 relative group"
+			>
+				Contacto
+				<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+			</a>
+		</div>
+	</nav>
+</header>
+
+<!-- Menú móvil -->
+<div class="md:hidden" id="mobile-menu" style="display: none;">
+	<!-- Fondo oscuro al abrir el menú -->
+	<div class="fixed inset-0 z-10 bg-black opacity-30"></div>
+	<div
+		class="fixed inset-y-0 right-0 z-20 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+	>
+		<div class="flex items-center justify-between">
+			<a href="/" class="flex items-center">
+				<img
+					class="h-12 w-auto"
+					src="/src/assets/netfic-logo1.svg"
+					alt="Logo"
+				/>
+				<span class="ml-2 text-lg font-bold text-indigo-600"
+					>NetFic</span
+				>
+			</a>
+			<button
+				type="button"
+				class="rounded-md p-2 text-gray-700"
+				id="close-menu-button"
+			>
+				<span class="sr-only">Cerrar menú</span>
+				<svg
+					class="size-6"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="currentColor"
+					aria-hidden="true"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M6 18 18 6M6 6l12 12"></path>
+				</svg>
+			</button>
+		</div>
+		<div class="mt-6 flow-root">
+			<div class="-my-6 divide-y divide-gray-500/10">
+				<div class="space-y-2 py-6">
+					<a
+						href="/"
+						class="block rounded-lg px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50"
+						>Inicio</a
+					>
+					<a
+						href="/servicios"
+						class="block rounded-lg px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50"
+						>Servicios</a
+					>
+					<a
+						href="/quienes-somos"
+						class="block rounded-lg px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50"
+						>Quienes Somos</a
+					>
+					<a
+						href="/contacto"
+						class="block rounded-lg px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50"
+						>Contacto</a
+					>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script is:inline>
+	document.addEventListener("DOMContentLoaded", () => {
+		// Referencias a elementos
+		const navbar = document.getElementById("navbar");
+		const mobileMenuButton = document.getElementById("mobile-menu-button");
+		const closeMenuButton = document.getElementById("close-menu-button");
+		const mobileMenu = document.getElementById("mobile-menu");
+
+		// Navbar sticky con cambio de color
+		let lastScrollY = 0;
+		
+		window.addEventListener("scroll", () => {
+			const currentScrollY = window.scrollY;
+			const navbarOverlay = document.getElementById("navbar-overlay");
+			
+			if (currentScrollY > 100) {
+				// Cambiar a fondo blanco sólido cuando se hace scroll
+				navbar.classList.remove("bg-transparent");
+				navbar.classList.add("bg-white", "shadow-md");
+				
+				// Ocultar overlay transparente
+				if (navbarOverlay) {
+					navbarOverlay.style.opacity = "0";
+				}
+				
+				// Cambiar colores de texto a oscuro
+				const navLinks = navbar.querySelectorAll("a");
+				navLinks.forEach(link => {
+					if (link.querySelector("img")) {
+						// Es el logo, no cambiar color
+						return;
+					}
+					link.classList.remove("text-white", "hover:text-blue-300");
+					link.classList.add("text-gray-900", "hover:text-indigo-600");
+					
+					// Cambiar color de la línea de hover
+					const hoverLine = link.querySelector("span");
+					if (hoverLine) {
+						hoverLine.classList.remove("bg-blue-400");
+						hoverLine.classList.add("bg-indigo-600");
+					}
+				});
+
+				// Cambiar color del botón móvil
+				const mobileButton = navbar.querySelector("#mobile-menu-button");
+				if (mobileButton) {
+					mobileButton.classList.remove("text-white", "hover:text-blue-300");
+					mobileButton.classList.add("text-gray-700", "hover:text-indigo-600");
+				}
+
+			} else {
+				// Volver al fondo transparente
+				navbar.classList.add("bg-transparent");
+				navbar.classList.remove("bg-white", "shadow-md");
+				
+				// Mostrar overlay transparente sutil
+				if (navbarOverlay) {
+					navbarOverlay.style.opacity = "1";
+				}
+				
+				// Cambiar colores de texto a claro
+				const navLinks = navbar.querySelectorAll("a");
+				navLinks.forEach(link => {
+					if (link.querySelector("img")) {
+						// Es el logo, no cambiar color
+						return;
+					}
+					link.classList.add("text-white", "hover:text-blue-300");
+					link.classList.remove("text-gray-900", "hover:text-indigo-600");
+					
+					// Cambiar color de la línea de hover
+					const hoverLine = link.querySelector("span");
+					if (hoverLine) {
+						hoverLine.classList.add("bg-blue-400");
+						hoverLine.classList.remove("bg-indigo-600");
+					}
+				});
+
+				// Cambiar color del botón móvil
+				const mobileButton = navbar.querySelector("#mobile-menu-button");
+				if (mobileButton) {
+					mobileButton.classList.add("text-white", "hover:text-blue-300");
+					mobileButton.classList.remove("text-gray-700", "hover:text-indigo-600");
+				}
+			}
+
+			lastScrollY = currentScrollY;
+		});
+
+		// Botones para el menú móvil
+		if (mobileMenuButton) {
+			mobileMenuButton.addEventListener("click", () => {
+				mobileMenu.style.display = "block";
+				document.body.style.overflow = "hidden"; // Evitar scroll
+			});
+		}
+
+		// Cerrar menú móvil
+		if (closeMenuButton) {
+			closeMenuButton.addEventListener("click", () => {
+				mobileMenu.style.display = "none";
+				document.body.style.overflow = ""; // Restaurar scroll
+			});
+		}
+	});
+</script>

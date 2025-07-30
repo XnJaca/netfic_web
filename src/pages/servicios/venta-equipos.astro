@@ -1,0 +1,182 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ServiceDetail from "../../components/ServiceDetail.astro";
+---
+
+<Layout
+  title="Venta de Equipos | NETFIC SOLUTIONS"
+  description="Distribuimos equipos y accesorios de telecomunicaciones, seguridad y redes de las mejores marcas del mercado con garantía."
+>
+  <!-- Hero Section -->
+  <div
+    class="relative pt-16 pb-24 flex content-center items-center justify-center"
+    style="min-height: 40vh;"
+  >
+    <div
+      class="absolute top-0 w-full h-full bg-center bg-cover"
+      style="background-image: url('/src/assets/equipo_electricidad-bg.png');"
+    >
+      <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"
+      ></span>
+    </div>
+    <div class="container relative mx-auto">
+      <div class="items-center flex flex-wrap">
+        <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+          <h1 class="text-white font-semibold text-5xl mb-2">
+            Venta de Equipos
+          </h1>
+          <p class="mt-4 text-lg text-gray-200">
+            Tecnología de vanguardia para tus proyectos
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Detail -->
+  <ServiceDetail
+    title="Venta de Equipos"
+    description="En NetFic Solutions distribuimos una amplia gama de equipos y accesorios de telecomunicaciones, seguridad y redes de las mejores marcas del mercado. Ofrecemos asesoría técnica especializada para que puedas adquirir los productos que mejor se adapten a tus necesidades, con garantía y soporte técnico post-venta."
+    icon='<svg class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg>'
+    features={[
+      "Routers, switches y access points para redes empresariales",
+      "Cámaras de seguridad, NVRs y DVRs para sistemas CCTV",
+      "Teléfonos IP y equipamiento para comunicaciones unificadas",
+      "Cables, conectores y accesorios para instalaciones estructuradas",
+      "Equipamiento para instalaciones de fibra óptica",
+      "Sistemas UPS y protección eléctrica",
+    ]}
+    benefits={[
+      "Productos originales con garantía de fábrica",
+      "Asesoría técnica especializada para la elección adecuada",
+      "Soporte post-venta y mantenimiento",
+      "Catálogo actualizado con las últimas tecnologías",
+      "Precios competitivos en equipos de calidad",
+      "Posibilidad de integración con servicios de instalación",
+    ]}
+    image="/src/assets/venta_equipo.png"
+  />
+  <!-- Featured Products Section -->
+  <div class="py-12 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-6">
+        Productos destacados
+      </h2>
+      <p class="text-center text-gray-500 mb-12 max-w-3xl mx-auto">
+        Distribuimos productos de las principales marcas del mercado para
+        garantizar calidad, rendimiento y durabilidad en todos nuestros
+        proyectos.
+      </p>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="flex flex-col items-center">
+          <img
+            src="/src/assets/switch_red.png"
+            alt="Switches de red"
+            class="h-16 object-contain grayscale hover:grayscale-0 transition-all"
+          />
+          <p class="mt-2 text-sm font-medium text-gray-700">Switches</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <img
+            src="/src/assets/access_point.png"
+            alt="Access Points"
+            class="h-16 object-contain grayscale hover:grayscale-0 transition-all"
+          />
+          <p class="mt-2 text-sm font-medium text-gray-700">Access Points</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <img
+            src="/src/assets/camaras_ip.png"
+            alt="Cámaras IP"
+            class="h-16 object-contain grayscale hover:grayscale-0 transition-all"
+          />
+          <p class="mt-2 text-sm font-medium text-gray-700">Cámaras IP</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <img
+            src="/src/assets/ups.png"
+            alt="UPS"
+            class="h-16 object-contain grayscale hover:grayscale-0 transition-all"
+          />
+          <p class="mt-2 text-sm font-medium text-gray-700">UPS</p>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center">
+        <a
+          href="/contacto"
+          class="inline-flex items-center border border-indigo-600 text-indigo-600 px-6 py-3 rounded-md hover:bg-indigo-600 hover:text-white transition-colors"
+        >
+          Solicitar catálogo completo
+          <svg
+            class="ml-2 h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Related Services Section -->
+  <div class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">
+        Servicios relacionados
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <a
+          href="/servicios/redes-inalambricas"
+          class="block hover:no-underline"
+        >
+          <div
+            class="bg-gray-50 rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Redes Inalámbricas
+            </h3>
+            <p class="text-gray-500">
+              Instalación profesional de los equipos de networking que
+              adquieras.
+            </p>
+          </div>
+        </a>
+        <a href="/servicios/videovigilancia" class="block hover:no-underline">
+          <div
+            class="bg-gray-50 rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Videovigilancia CCTV
+            </h3>
+            <p class="text-gray-500">
+              Implementación y configuración de sistemas de seguridad completos.
+            </p>
+          </div>
+        </a>
+        <a
+          href="/servicios/centrales-telefonicas"
+          class="block hover:no-underline"
+        >
+          <div
+            class="bg-gray-50 rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Centrales Telefónicas
+            </h3>
+            <p class="text-gray-500">
+              Instalación y configuración de equipamiento para telefonía IP.
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,112 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ServiceDetail from "../../components/ServiceDetail.astro";
+---
+
+<Layout
+  title="Redes Inalámbricas | NETFIC SOLUTIONS"
+  description="Diseño, instalación y configuración de redes Wi-Fi de alto rendimiento para hogares y empresas."
+>
+  <!-- Hero Section -->
+  <div
+    class="relative pt-16 pb-24 flex content-center items-center justify-center"
+    style="min-height: 40vh;"
+  >
+    <div
+      class="absolute top-0 w-full h-full bg-center bg-cover"
+      style="background-image: url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"
+    >
+      <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"
+      ></span>
+    </div>
+    <div class="container relative mx-auto">
+      <div class="items-center flex flex-wrap">
+        <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+          <h1 class="text-white font-semibold text-5xl mb-2">
+            Redes Inalámbricas
+          </h1>
+          <p class="mt-4 text-lg text-gray-200">
+            Conectividad sin límites para tu hogar o negocio
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Detail -->
+  <ServiceDetail
+    title="Redes Inalámbricas"
+    description="En NetFic Solutions somos especialistas en el diseño, instalación y configuración de redes Wi-Fi de alto rendimiento. Nuestras soluciones de conectividad inalámbrica están diseñadas para proporcionar cobertura óptima en todo tipo de espacios, desde pequeños hogares hasta grandes instalaciones empresariales."
+    icon='<svg class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z" /></svg>'
+    features={[
+      "Análisis de sitio y planificación de cobertura para optimizar la señal",
+      "Instalación de puntos de acceso de alta potencia y última generación",
+      "Configuración de redes empresariales con múltiples SSIDs",
+      "Implementación de sistemas de gestión centralizada",
+      "Seguridad avanzada con encriptación WPA3 y segmentación de redes",
+      "Soluciones de roaming para la transición perfecta entre puntos de acceso",
+    ]}
+    benefits={[
+      "Cobertura completa sin puntos muertos en todas las áreas",
+      "Mayor velocidad y estabilidad en la conexión",
+      "Seguridad reforzada contra accesos no autorizados",
+      "Soporte para múltiples dispositivos conectados simultáneamente",
+      "Escalabilidad para crecer según las necesidades del cliente",
+      "Ahorro de costos en cableado estructurado",
+    ]}
+    image="/src/assets/redes_inalambricas.png"
+  />
+
+  <!-- Related Services Section -->
+  <div class="py-12 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">
+        Servicios relacionados
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <a
+          href="/servicios/cableado-estructurado"
+          class="block hover:no-underline"
+        >
+          <div
+            class="bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Cableado Estructurado
+            </h3>
+            <p class="text-gray-500">
+              El complemento perfecto para tus redes inalámbricas con
+              conectividad estable y de alta velocidad.
+            </p>
+          </div>
+        </a>
+        <a href="/servicios/fibra-optica" class="block hover:no-underline">
+          <div
+            class="bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Redes de Fibra Óptica
+            </h3>
+            <p class="text-gray-500">
+              Máxima velocidad y estabilidad para la transmisión de datos en tu
+              red.
+            </p>
+          </div>
+        </a>
+        <a href="/servicios/venta-equipos" class="block hover:no-underline">
+          <div
+            class="bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Venta de Equipos
+            </h3>
+            <p class="text-gray-500">
+              Dispositivos de networking de las mejores marcas para tu
+              infraestructura inalámbrica.
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

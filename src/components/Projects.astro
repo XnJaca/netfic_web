@@ -1,0 +1,397 @@
+---
+const projects = [
+  {
+    id: 1,
+    title: "Red Empresarial Grupo FIRMA",
+    category: "Redes Corporativas",
+    description: "Diseño e instalación de infraestructura completa de red para edificio corporativo de 5 pisos, incluyendo cableado estructurado CAT6A, fibra óptica y cobertura WiFi.",
+    image: "https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    features: [
+      "150+ puntos de red instalados",
+      "Cobertura WiFi optimizada con 12 AP",
+      "Centro de datos con redundancia y UPS"
+    ],
+    stats: { duration: "3 meses", budget: "€45.000", satisfaction: "100%" }
+  },
+  {
+    id: 2,
+    title: "Sistema de Seguridad Centro Comercial",
+    category: "Videovigilancia",
+    description: "Instalación de sistema completo de videovigilancia para centro comercial con 86 cámaras IP, software de análisis de video y monitoreo centralizado.",
+    image: "https://images.unsplash.com/photo-1616280312326-ad4ad48c1eda?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    features: [
+      "Cobertura del 100% de áreas críticas",
+      "Reducción del 65% en incidentes",
+      "Acceso remoto desde móvil para seguridad"
+    ],
+    stats: { duration: "2 meses", budget: "€32.000", satisfaction: "98%" }
+  },
+  {
+    id: 3,
+    title: "Red de Fibra Campus Universitario",
+    category: "Fibra Óptica",
+    description: "Implementación de red de fibra óptica para campus universitario interconectando 8 edificios con tecnología de última generación y alta velocidad.",
+    image: "https://images.unsplash.com/photo-1631271602885-88a3e7127006?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    features: [
+      "6.3 km de fibra óptica instalada",
+      "Velocidad de transmisión garantizada 10Gbps",
+      "Escalable hasta 40Gbps sin cambios de infraestructura"
+    ],
+    stats: { duration: "4 meses", budget: "€78.000", satisfaction: "100%" }
+  },
+  {
+    id: 4,
+    title: "Climatización Edificio de Oficinas",
+    category: "Aires Acondicionados",
+    description: "Instalación de sistema centralizado de aire acondicionado de alta eficiencia energética para edificio de oficinas de 3 plantas con 30 unidades.",
+    image: "https://images.unsplash.com/photo-1614633833026-0820552978b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    features: [
+      "Ahorro energético del 40% anual",
+      "Sistema de control inteligente por zonas",
+      "Integración con sistema de monitoreo remoto"
+    ],
+    stats: { duration: "6 semanas", budget: "€28.500", satisfaction: "95%" }
+  },
+  {
+    id: 5,
+    title: "Central Telefónica IP Hospital",
+    category: "Centrales Telefónicas",
+    description: "Migración completa a sistema de telefonía IP para hospital con 200+ extensiones, integración con sistemas médicos y redundancia crítica.",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    features: [
+      "200+ extensiones IP configuradas",
+      "Integración con sistemas hospitalarios",
+      "Redundancia 99.9% de uptime garantizado"
+    ],
+    stats: { duration: "5 semanas", budget: "€35.000", satisfaction: "100%" }
+  },
+  {
+    id: 6,
+    title: "Instalación Eléctrica Residencial Premium",
+    category: "Instalaciones Eléctricas",
+    description: "Proyecto integral de instalación eléctrica para complejo residencial de lujo con domótica, paneles solares y sistema de respaldo.",
+    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    features: [
+      "Sistema domótico completo",
+      "Instalación de paneles solares 50kW",
+      "UPS y sistema de respaldo automático"
+    ],
+    stats: { duration: "8 semanas", budget: "€95.000", satisfaction: "100%" }
+  }
+];
+
+const categories = ["Todas", "Redes Corporativas", "Videovigilancia", "Fibra Óptica", "Aires Acondicionados", "Centrales Telefónicas", "Instalaciones Eléctricas"];
+---
+
+<section id="proyectos" class="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl">
+        Nuestros Proyectos
+      </h2>
+      <p class="mt-4 max-w-3xl mx-auto text-xl text-gray-600">
+        Descubre algunos de los proyectos exitosos que hemos realizado para nuestros clientes
+      </p>
+    </div>
+
+    <!-- Filtros de Categoría -->
+    <div class="mt-12" x-data="projectsGallery()">
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        <template x-for="category in categories" :key="category">
+          <button
+            x-text="category"
+            @click="filterProjects(category)"
+            :class="{
+              'bg-indigo-600 text-white': activeFilter === category,
+              'bg-white text-gray-700 hover:bg-indigo-50': activeFilter !== category
+            }"
+            class="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border border-gray-200 shadow-sm hover:shadow-md"
+          ></button>
+        </template>
+      </div>
+
+      <!-- Grid de Proyectos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <template x-for="project in filteredProjects.slice(0, showCount)" :key="project.id">
+          <div 
+            class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
+            @click="openModal(project)"
+          >
+            <!-- Imagen del Proyecto -->
+            <div class="relative overflow-hidden">
+              <img 
+                :src="project.image" 
+                :alt="project.title"
+                class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div class="absolute top-4 left-4">
+                <span 
+                  x-text="project.category"
+                  class="inline-block bg-indigo-600 text-white text-xs px-3 py-1 rounded-full font-semibold"
+                ></span>
+              </div>
+              <!-- Overlay con ícono -->
+              <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                <svg class="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Contenido de la Tarjeta -->
+            <div class="p-6">
+              <h3 
+                x-text="project.title"
+                class="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors duration-200"
+              ></h3>
+              <p 
+                x-text="project.description"
+                class="text-gray-600 text-sm line-clamp-3 leading-relaxed"
+              ></p>
+              
+              <!-- Stats rápidas -->
+              <div class="mt-4 flex justify-between text-xs text-gray-500">
+                <span x-text="'Duración: ' + project.stats.duration"></span>
+                <span x-text="'Satisfacción: ' + project.stats.satisfaction"></span>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <!-- Botón Ver Más -->
+      <div class="text-center mt-12" x-show="showCount < filteredProjects.length">
+        <button 
+          @click="showMore()"
+          class="inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+        >
+          Ver más proyectos
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Modal de Detalles -->
+      <div 
+        x-show="modalOpen" 
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+        @click="closeModal()"
+      >
+        <div 
+          class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+          @click.stop
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 transform scale-90"
+          x-transition:enter-end="opacity-100 transform scale-100"
+        >
+          <template x-if="selectedProject">
+            <div>
+              <!-- Header del Modal -->
+              <div class="relative">
+                <img 
+                  :src="selectedProject.image" 
+                  :alt="selectedProject.title"
+                  class="w-full h-64 object-cover"
+                />
+                <button 
+                  @click="closeModal()"
+                  class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
+                >
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+                <div class="absolute bottom-4 left-4">
+                  <span 
+                    x-text="selectedProject.category"
+                    class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-full font-semibold"
+                  ></span>
+                </div>
+              </div>
+
+              <!-- Contenido del Modal -->
+              <div class="p-8">
+                <h3 
+                  x-text="selectedProject.title"
+                  class="text-3xl font-bold text-gray-900 mb-4"
+                ></h3>
+                <p 
+                  x-text="selectedProject.description"
+                  class="text-gray-600 text-lg leading-relaxed mb-6"
+                ></p>
+
+                <!-- Características -->
+                <div class="mb-8">
+                  <h4 class="text-xl font-semibold text-gray-900 mb-4">Características del Proyecto</h4>
+                  <ul class="space-y-3">
+                    <template x-for="feature in selectedProject.features" :key="feature">
+                      <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span x-text="feature" class="text-gray-700"></span>
+                      </li>
+                    </template>
+                  </ul>
+                </div>
+
+                <!-- Estadísticas -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 bg-gray-50 rounded-xl p-6">
+                  <div class="text-center">
+                    <div class="text-2xl font-bold text-indigo-600" x-text="selectedProject.stats.duration"></div>
+                    <div class="text-sm text-gray-600">Duración</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-2xl font-bold text-indigo-600" x-text="selectedProject.stats.budget"></div>
+                    <div class="text-sm text-gray-600">Presupuesto</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-2xl font-bold text-indigo-600" x-text="selectedProject.stats.satisfaction"></div>
+                    <div class="text-sm text-gray-600">Satisfacción</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  function projectsGallery() {
+    return {
+      activeFilter: 'Todas',
+      showCount: 6,
+      modalOpen: false,
+      selectedProject: null,
+      categories: ["Todas", "Redes Corporativas", "Videovigilancia", "Fibra Óptica", "Aires Acondicionados", "Centrales Telefónicas", "Instalaciones Eléctricas"],
+      projects: [
+        {
+          id: 1,
+          title: "Red Empresarial Grupo FIRMA",
+          category: "Redes Corporativas", 
+          description: "Diseño e instalación de infraestructura completa de red para edificio corporativo de 5 pisos, incluyendo cableado estructurado CAT6A, fibra óptica y cobertura WiFi.",
+          image: "https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          features: [
+            "150+ puntos de red instalados",
+            "Cobertura WiFi optimizada con 12 AP", 
+            "Centro de datos con redundancia y UPS"
+          ],
+          stats: { duration: "3 meses", budget: "€45.000", satisfaction: "100%" }
+        },
+        {
+          id: 2,
+          title: "Sistema de Seguridad Centro Comercial",
+          category: "Videovigilancia",
+          description: "Instalación de sistema completo de videovigilancia para centro comercial con 86 cámaras IP, software de análisis de video y monitoreo centralizado.",
+          image: "https://images.unsplash.com/photo-1616280312326-ad4ad48c1eda?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          features: [
+            "Cobertura del 100% de áreas críticas",
+            "Reducción del 65% en incidentes",
+            "Acceso remoto desde móvil para seguridad"
+          ],
+          stats: { duration: "2 meses", budget: "€32.000", satisfaction: "98%" }
+        },
+        {
+          id: 3,
+          title: "Red de Fibra Campus Universitario", 
+          category: "Fibra Óptica",
+          description: "Implementación de red de fibra óptica para campus universitario interconectando 8 edificios con tecnología de última generación y alta velocidad.",
+          image: "https://images.unsplash.com/photo-1631271602885-88a3e7127006?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          features: [
+            "6.3 km de fibra óptica instalada",
+            "Velocidad de transmisión garantizada 10Gbps",
+            "Escalable hasta 40Gbps sin cambios de infraestructura"
+          ],
+          stats: { duration: "4 meses", budget: "€78.000", satisfaction: "100%" }
+        },
+        {
+          id: 4,
+          title: "Climatización Edificio de Oficinas",
+          category: "Aires Acondicionados",
+          description: "Instalación de sistema centralizado de aire acondicionado de alta eficiencia energética para edificio de oficinas de 3 plantas con 30 unidades.",
+          image: "https://images.unsplash.com/photo-1614633833026-0820552978b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          features: [
+            "Ahorro energético del 40% anual",
+            "Sistema de control inteligente por zonas", 
+            "Integración con sistema de monitoreo remoto"
+          ],
+          stats: { duration: "6 semanas", budget: "€28.500", satisfaction: "95%" }
+        },
+        {
+          id: 5,
+          title: "Central Telefónica IP Hospital",
+          category: "Centrales Telefónicas",
+          description: "Migración completa a sistema de telefonía IP para hospital con 200+ extensiones, integración con sistemas médicos y redundancia crítica.",
+          image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          features: [
+            "200+ extensiones IP configuradas",
+            "Integración con sistemas hospitalarios",
+            "Redundancia 99.9% de uptime garantizado"
+          ],
+          stats: { duration: "5 semanas", budget: "€35.000", satisfaction: "100%" }
+        },
+        {
+          id: 6,
+          title: "Instalación Eléctrica Residencial Premium",
+          category: "Instalaciones Eléctricas", 
+          description: "Proyecto integral de instalación eléctrica para complejo residencial de lujo con domótica, paneles solares y sistema de respaldo.",
+          image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          features: [
+            "Sistema domótico completo",
+            "Instalación de paneles solares 50kW",
+            "UPS y sistema de respaldo automático"
+          ],
+          stats: { duration: "8 semanas", budget: "€95.000", satisfaction: "100%" }
+        }
+      ],
+
+      get filteredProjects() {
+        if (this.activeFilter === 'Todas') {
+          return this.projects;
+        }
+        return this.projects.filter(project => project.category === this.activeFilter);
+      },
+
+      filterProjects(category) {
+        this.activeFilter = category;
+        this.showCount = 6; // Reset show count when filtering
+      },
+
+      showMore() {
+        this.showCount += 3;
+      },
+
+      openModal(project) {
+        this.selectedProject = project;
+        this.modalOpen = true;
+        document.body.classList.add('overflow-hidden');
+      },
+
+      closeModal() {
+        this.modalOpen = false;
+        this.selectedProject = null;  
+        document.body.classList.remove('overflow-hidden');
+      }
+    };
+  }
+</script>
+
+<style>
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

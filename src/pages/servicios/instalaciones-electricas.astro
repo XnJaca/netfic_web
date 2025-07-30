@@ -1,0 +1,115 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ServiceDetail from "../../components/ServiceDetail.astro";
+---
+
+<Layout
+  title="Instalaciones Eléctricas | NETFIC SOLUTIONS"
+  description="Servicios completos de instalación eléctrica residencial y comercial con altos estándares de calidad y seguridad."
+>
+  <!-- Hero Section -->
+  <div
+    class="relative pt-16 pb-24 flex content-center items-center justify-center"
+    style="min-height: 40vh;"
+  >
+    <div
+      class="absolute top-0 w-full h-full bg-center bg-cover"
+      style="background-image: url('https://images.unsplash.com/photo-1593279948454-a1a1f59b2936?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"
+    >
+      <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"
+      ></span>
+    </div>
+    <div class="container relative mx-auto">
+      <div class="items-center flex flex-wrap">
+        <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+          <h1 class="text-white font-semibold text-5xl mb-2">
+            Instalaciones Eléctricas
+          </h1>
+          <p class="mt-4 text-lg text-gray-200">
+            Seguridad y eficiencia para tu hogar o negocio
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Detail -->
+  <ServiceDetail
+    title="Instalaciones Eléctricas"
+    description="En NetFic Solutions contamos con personal calificado para realizar instalaciones eléctricas residenciales y comerciales bajo los más altos estándares de calidad y seguridad. Nuestros servicios abarcan desde instalaciones nuevas hasta remodelaciones, reparaciones y mantenimiento de sistemas eléctricos existentes, garantizando eficiencia y confiabilidad."
+    icon='<svg class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" /></svg>'
+    features={[
+      "Instalación de tableros eléctricos y sistemas de distribución",
+      "Cableado para circuitos de iluminación y tomacorrientes",
+      "Instalación de sistemas de iluminación LED y ahorro energético",
+      "Implementación de sistemas de respaldo con UPS y generadores",
+      "Puesta a tierra y sistemas de protección contra descargas",
+      "Certificación y pruebas de seguridad eléctrica",
+    ]}
+    benefits={[
+      "Cumplimiento con normativas eléctricas vigentes (NEC, RETIE)",
+      "Máxima seguridad para prevenir riesgos eléctricos",
+      "Ahorro energético con sistemas eficientes",
+      "Instalaciones duraderas con materiales de calidad",
+      "Adaptable a futuras expansiones y modificaciones",
+      "Garantía en todos nuestros trabajos",
+    ]}
+    image="https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1496&q=80"
+  />
+
+  <!-- Related Services Section -->
+  <div class="py-12 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">
+        Servicios relacionados
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <a
+          href="/servicios/aires-acondicionados"
+          class="block hover:no-underline"
+        >
+          <div
+            class="bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Aires Acondicionados
+            </h3>
+            <p class="text-gray-500">
+              Instalación de sistemas de climatización con el respaldo eléctrico
+              adecuado.
+            </p>
+          </div>
+        </a>
+        <a
+          href="/servicios/cableado-estructurado"
+          class="block hover:no-underline"
+        >
+          <div
+            class="bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Cableado Estructurado
+            </h3>
+            <p class="text-gray-500">
+              Integración de sistemas eléctricos con infraestructura de red
+              datos.
+            </p>
+          </div>
+        </a>
+        <a href="/servicios/videovigilancia" class="block hover:no-underline">
+          <div
+            class="bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Videovigilancia CCTV
+            </h3>
+            <p class="text-gray-500">
+              Sistemas de seguridad con respaldo eléctrico para funcionamiento
+              continuo.
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

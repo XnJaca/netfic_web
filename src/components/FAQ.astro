@@ -1,0 +1,79 @@
+---
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  faqs: FAQ[];
+}
+
+const { 
+  title = "Preguntas frecuentes", 
+  subtitle = "Respuestas a las dudas más comunes",
+  faqs 
+} = Astro.props;
+
+---
+
+<section class="py-12 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <h2 class="text-3xl font-bold text-gray-900">{title}</h2>
+      <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500">{subtitle}</p>
+    </div>
+    <div class="mt-12 max-w-3xl mx-auto divide-y-2 divide-gray-200">
+      <dl class="space-y-6 divide-y divide-gray-200" x-data="{active: null}">
+        {faqs.map((faq, index) => (
+          <div class="pt-6" x-data={`{ id: ${index} }`}>
+            <dt class="text-lg">
+              <button 
+                type="button" 
+                class="text-left w-full flex justify-between items-center text-gray-900 focus:outline-none"
+                @click={`active = active === $id ? null : $id`}
+                :aria-expanded={`active === $id`}
+              >
+                <span class="font-medium text-gray-900">{faq.question}</span>
+                <span class="ml-6 flex-shrink-0">
+                  <svg 
+                    class="h-6 w-6 text-indigo-500 transform transition-transform duration-200"
+                    :class={`active === $id ? 'rotate-180' : ''`}
+                    xmlns="http://www.w3.org/2000/svg" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </button>
+            </dt>
+            <dd 
+              class="mt-2 pr-12 overflow-hidden transition-all max-h-0 duration-300"
+              :class={`active === $id ? 'max-h-96' : ''`}
+              x-ref="answer"
+            >
+              <p class="text-base text-gray-600">{faq.answer}</p>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </div>
+</section>
+
+<script>
+import Alpine from "alpinejs";
+
+document.addEventListener('alpine:init', () => {
+  Alpine.data('faqItem', () => ({
+    open: false,
+    toggle() {
+      this.open = !this.open;
+    }
+  }));
+});
+</script>

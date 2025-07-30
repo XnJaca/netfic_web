@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import About from "../components/About.astro";
+---
+
+<Layout title="Quienes Somos | NETFIC SOLUTIONS" description="Conoce más sobre NetFic Solutions, nuestra misión, visión y valores.">
+    <!-- Hero Section -->
+    <div class="relative pt-16 pb-24 flex content-center items-center justify-center" style="min-height: 40vh;">
+        <div class="absolute top-0 w-full h-full bg-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+            <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
+        </div>
+        <div class="container relative mx-auto">
+            <div class="items-center flex flex-wrap">
+                <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+                    <h1 class="text-white font-semibold text-5xl mb-2">
+                        Quienes Somos
+                    </h1>
+                    <p class="mt-4 text-lg text-gray-200">
+                        Conoce a nuestro equipo y nuestra filosofía de trabajo
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <About />
+</Layout>

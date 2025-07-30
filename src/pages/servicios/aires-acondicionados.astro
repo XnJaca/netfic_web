@@ -1,0 +1,156 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ServiceDetail from "../../components/ServiceDetail.astro";
+import FAQ from "../../components/FAQ.astro";
+---
+
+<Layout
+  title="Aires Acondicionados | NETFIC SOLUTIONS"
+  description="Venta, instalación, reparación y mantenimiento de sistemas de aire acondicionado para hogares y empresas con técnicos certificados."
+>
+  <!-- Hero Section -->
+  <div
+    class="relative pt-16 pb-24 flex content-center items-center justify-center"
+    style="min-height: 40vh;"
+  >
+    <div
+      class="absolute top-0 w-full h-full bg-center bg-cover"
+      style="background-image: url('/src/assets/aire_acondicionado-bg.png');"
+    >
+      <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"
+      ></span>
+    </div>
+    <div class="container relative mx-auto">
+      <div class="items-center flex flex-wrap">
+        <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+          <h1 class="text-white font-semibold text-5xl mb-2">
+            Aires Acondicionados
+            <span
+              class="inline-block bg-green-500 text-white text-sm font-bold px-2 py-1 rounded-md ml-2 align-middle"
+              >NUEVO</span
+            >
+          </h1>
+          <p class="mt-4 text-lg text-gray-200">
+            Confort y climatización para todos los espacios
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Detail -->
+  <ServiceDetail
+    title="Aires Acondicionados"
+    description="En NetFic Solutions hemos expandido nuestros servicios para ofrecer soluciones completas de climatización. Contamos con técnicos certificados para la venta, instalación, reparación y mantenimiento de sistemas de aire acondicionado para hogares y empresas. Utilizamos equipos de última generación que combinan eficiencia energética con máximo rendimiento."
+    icon='<svg class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" /></svg>'
+    features={[
+      "Instalación de sistemas Split, Multi-Split y centralizados",
+      "Equipos inverter de bajo consumo energético",
+      "Sistemas con tecnología de purificación de aire",
+      "Mantenimiento preventivo y correctivo",
+      "Detección y reparación de fugas de refrigerante",
+      "Instalación de sistemas de control inteligente",
+    ]}
+    benefits={[
+      "Ambientes confortables en cualquier época del año",
+      "Reducción significativa en costos de energía eléctrica",
+      "Mejora de la calidad del aire interior",
+      "Prolongación de la vida útil de los equipos",
+      "Funcionamiento silencioso para mayor comodidad",
+      "Sistemas adaptados a las necesidades específicas de cada espacio",
+    ]}
+    image="/src/assets/aire_acondicionado.png"
+    isNew={true}
+  />
+  <!-- FAQ Section -->
+  <FAQ
+    title="Preguntas frecuentes sobre Aires Acondicionados"
+    subtitle="Todo lo que necesitas saber sobre nuestro nuevo servicio"
+    faqs={[
+      {
+        question: "¿Qué tipos de sistemas de aire acondicionado ofrecen?",
+        answer:
+          "Ofrecemos una amplia gama de sistemas incluyendo Split (mini-split) para habitaciones individuales, Multi-Split para múltiples espacios, sistemas centralizados para edificios completos y soluciones VRF/VRV para aplicaciones comerciales. Todos nuestros equipos son de marcas reconocidas y cuentan con garantía del fabricante.",
+      },
+      {
+        question:
+          "¿Cuál es la diferencia entre un equipo convencional y uno inverter?",
+        answer:
+          "Los equipos convencionales funcionan encendiendo y apagando el compresor para mantener la temperatura, mientras que los equipos inverter ajustan continuamente la velocidad del compresor según la necesidad. Los sistemas inverter son más eficientes energéticamente (ahorrando hasta un 40% de electricidad), más silenciosos y mantienen una temperatura más estable, aunque inicialmente son más costosos.",
+      },
+      {
+        question:
+          "¿Cómo se determina la capacidad adecuada de aire acondicionado para mi espacio?",
+        answer:
+          "La capacidad necesaria (medida en BTU o toneladas) se determina considerando el tamaño del espacio, la altura de los techos, el aislamiento, la exposición solar, la cantidad de personas que ocuparán el espacio, los equipos electrónicos presentes y factores climáticos regionales. Realizamos un estudio técnico para recomendar la capacidad óptima.",
+      },
+      {
+        question:
+          "¿Con qué frecuencia se debe realizar mantenimiento a los equipos?",
+        answer:
+          "Recomendamos realizar mantenimiento preventivo al menos cada 6 meses para garantizar un funcionamiento óptimo y prolongar la vida útil del equipo. El mantenimiento incluye limpieza de filtros, revisión de niveles de refrigerante, limpieza de serpentines y verificación del sistema eléctrico.",
+      },
+      {
+        question: "¿Ofrecen garantía por la instalación?",
+        answer:
+          "Sí, todas nuestras instalaciones cuentan con garantía de 1 año en mano de obra, además de la garantía del fabricante para los equipos (generalmente 1-5 años dependiendo del modelo). Si surge algún problema relacionado con la instalación, lo resolveremos sin costo adicional.",
+      },
+    ]}
+  />
+
+  <!-- Related Services Section -->
+  <div class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">
+        Servicios relacionados
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <a
+          href="/servicios/instalaciones-electricas"
+          class="block hover:no-underline"
+        >
+          <div
+            class="bg-gray-50 rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Instalaciones Eléctricas
+            </h3>
+            <p class="text-gray-500">
+              Asegura una instalación eléctrica adecuada para tu sistema de
+              climatización.
+            </p>
+          </div>
+        </a>
+        <a href="/servicios/venta-equipos" class="block hover:no-underline">
+          <div
+            class="bg-gray-50 rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Venta de Equipos
+            </h3>
+            <p class="text-gray-500">
+              Encuentra equipos de aire acondicionado de las mejores marcas con
+              garantía.
+            </p>
+          </div>
+        </a>
+        <a
+          href="/servicios/redes-inalambricas"
+          class="block hover:no-underline"
+        >
+          <div
+            class="bg-gray-50 rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Redes Inalámbricas
+            </h3>
+            <p class="text-gray-500">
+              Integra tu sistema de climatización con soluciones de domótica y
+              control inteligente.
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,115 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ServiceDetail from "../../components/ServiceDetail.astro";
+---
+
+<Layout
+  title="Redes de Fibra Óptica | NETFIC SOLUTIONS"
+  description="Instalación y mantenimiento de redes de fibra óptica para máxima velocidad y estabilidad en la transmisión de datos."
+>
+  <!-- Hero Section -->
+  <div
+    class="relative pt-16 pb-24 flex content-center items-center justify-center"
+    style="min-height: 40vh;"
+  >
+    <div
+      class="absolute top-0 w-full h-full bg-center bg-cover"
+      style="background-image: url('/src/assets/fibra_optica-bg.png');"
+    >
+      <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"
+      ></span>
+    </div>
+    <div class="container relative mx-auto">
+      <div class="items-center flex flex-wrap">
+        <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+          <h1 class="text-white font-semibold text-5xl mb-2">
+            Redes de Fibra Óptica
+          </h1>
+          <p class="mt-4 text-lg text-gray-200">
+            La solución definitiva para transmisión de datos a alta velocidad
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Detail -->
+  <ServiceDetail
+    title="Redes de Fibra Óptica"
+    description="En NetFic Solutions somos especialistas en el diseño, instalación y mantenimiento de redes de fibra óptica para empresas y campus corporativos. Implementamos soluciones de conectividad óptica que garantizan la máxima velocidad de transmisión de datos, baja latencia y alta confiabilidad para las aplicaciones más exigentes."
+    icon='<svg class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>'
+    features={[
+      "Instalación de fibra óptica monomodo y multimodo según necesidades",
+      "Fusión de fibra con equipos de alta precisión",
+      "Configuración de equipos activos para redes GPON",
+      "Implementación de soluciones FTTx (Fiber to the Home/Building/Cabinet)",
+      "Pruebas de certificación con OTDR para garantizar calidad",
+      "Diseño de redes troncales y de distribución",
+    ]}
+    benefits={[
+      "Velocidades de transmisión de datos superiores (10Gbps, 40Gbps, 100Gbps)",
+      "Inmunidad a interferencias electromagnéticas",
+      "Mayor alcance sin repetidores (hasta 70km según el tipo de fibra)",
+      "Capacidad para transmitir grandes volúmenes de datos",
+      "Infraestructura a prueba de futuro con larga vida útil",
+      "Mayor seguridad en la transmisión de información",
+    ]}
+    image="/src/assets/fibra_optica.png"
+  />
+
+  <!-- Related Services Section -->
+  <div class="py-12 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">
+        Servicios relacionados
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <a
+          href="/servicios/cableado-estructurado"
+          class="block hover:no-underline"
+        >
+          <div
+            class="bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Cableado Estructurado
+            </h3>
+            <p class="text-gray-500">
+              Integra tus redes de fibra óptica con cableado estructurado para
+              una solución completa.
+            </p>
+          </div>
+        </a>
+        <a href="/servicios/venta-equipos" class="block hover:no-underline">
+          <div
+            class="bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Venta de Equipos
+            </h3>
+            <p class="text-gray-500">
+              Switches, conversores y todo el equipamiento necesario para
+              implementar redes de fibra óptica.
+            </p>
+          </div>
+        </a>
+        <a
+          href="/servicios/redes-inalambricas"
+          class="block hover:no-underline"
+        >
+          <div
+            class="bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Redes Inalámbricas
+            </h3>
+            <p class="text-gray-500">
+              Soluciones wireless de alta capacidad soportadas por un backbone
+              de fibra óptica.
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

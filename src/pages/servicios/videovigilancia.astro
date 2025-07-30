@@ -1,0 +1,114 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ServiceDetail from "../../components/ServiceDetail.astro";
+---
+
+<Layout
+  title="Videovigilancia CCTV | NETFIC SOLUTIONS"
+  description="Instalación y mantenimiento de sistemas de cámaras de seguridad con tecnología de punta y acceso remoto desde cualquier dispositivo."
+>
+  <!-- Hero Section -->
+  <div
+    class="relative pt-16 pb-24 flex content-center items-center justify-center"
+    style="min-height: 40vh;"
+  >
+    <div
+      class="absolute top-0 w-full h-full bg-center bg-cover"
+      style="background-image: url('/src/assets/cctv.png');"
+    >
+      <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"
+      ></span>
+    </div>
+    <div class="container relative mx-auto">
+      <div class="items-center flex flex-wrap">
+        <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+          <h1 class="text-white font-semibold text-5xl mb-2">
+            Videovigilancia CCTV
+          </h1>
+          <p class="mt-4 text-lg text-gray-200">
+            Protege tu hogar o negocio con sistemas de seguridad avanzados
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Detail -->
+  <ServiceDetail
+    title="Videovigilancia CCTV"
+    description="En NetFic Solutions ofrecemos servicios completos de instalación y mantenimiento de sistemas de cámaras de seguridad CCTV con la última tecnología disponible. Nuestras soluciones permiten monitorear y proteger tus espacios con acceso remoto desde cualquier dispositivo, brindando tranquilidad y control total sobre la seguridad de tu hogar o negocio."
+    icon='<svg class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" /></svg>'
+    features={[
+      "Cámaras IP y analógicas HD de última generación",
+      "Sistemas de grabación NVR y DVR con almacenamiento expandible",
+      "Detección de movimiento y alertas en tiempo real",
+      "Visión nocturna y tecnología infrarroja",
+      "Monitoreo remoto desde celulares y computadoras",
+      "Integración con sistemas de alarma y control de acceso",
+    ]}
+    benefits={[
+      "Prevención de robos y actos vandálicos",
+      "Monitoreo en tiempo real desde cualquier lugar",
+      "Evidencia visual para situaciones de seguridad",
+      "Reducción de costos de seguridad tradicional",
+      "Integración con sistemas de domótica y automatización",
+      "Tranquilidad para propietarios y administradores",
+    ]}
+    image="/src/assets/cctv1.png"
+  />
+
+  <!-- Related Services Section -->
+  <div class="py-12 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">
+        Servicios relacionados
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <a
+          href="/servicios/cableado-estructurado"
+          class="block hover:no-underline"
+        >
+          <div
+            class="bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Cableado Estructurado
+            </h3>
+            <p class="text-gray-500">
+              Infraestructura de cableado para un sistema de videovigilancia
+              robusto y confiable.
+            </p>
+          </div>
+        </a>
+        <a href="/servicios/venta-equipos" class="block hover:no-underline">
+          <div
+            class="bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Venta de Equipos
+            </h3>
+            <p class="text-gray-500">
+              Adquiere cámaras, grabadores y accesorios de las mejores marcas
+              del mercado.
+            </p>
+          </div>
+        </a>
+        <a
+          href="/servicios/redes-inalambricas"
+          class="block hover:no-underline"
+        >
+          <div
+            class="bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg"
+          >
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Redes Inalámbricas
+            </h3>
+            <p class="text-gray-500">
+              Implementa cámaras IP inalámbricas con cobertura Wi-Fi optimizada.
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
