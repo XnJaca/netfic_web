@@ -2,9 +2,9 @@ import { Resend } from 'resend';
 
 export const prerender = false;
 
-const TO_EMAIL = 'info@netfic.com';
+const TO_EMAIL = 'info@netficsolutions.com';
 // Sandbox de Resend: solo manda al email dueño de la cuenta hasta verificar dominio.
-// Una vez verificado netfic.com en resend.com → DNS, cambiar a 'NetFic Web <hola@netfic.com>'.
+// Una vez verificado netficsolutions.com en resend.com → DNS, cambiar a 'NetFic Web <hola@netficsolutions.com>'.
 const FROM_EMAIL = 'NetFic Web <onboarding@resend.dev>';
 
 function escapeHtml(s) {
@@ -72,7 +72,7 @@ export async function POST({ request }) {
         <div style="padding: 18px; background: #F8F6F1; border-radius: 8px; line-height: 1.55;">${escapeHtml(message).replace(/\n/g, '<br>')}</div>
       </div>
 
-      <p style="margin-top: 28px; font-size: 12px; color: #7A7C77;">Enviado desde el formulario de netfic.com</p>
+      <p style="margin-top: 28px; font-size: 12px; color: #7A7C77;">Enviado desde el formulario de netficsolutions.com</p>
     </div>
   `;
 
