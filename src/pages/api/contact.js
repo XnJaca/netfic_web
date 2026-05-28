@@ -3,9 +3,9 @@ import { Resend } from 'resend';
 export const prerender = false;
 
 const TO_EMAIL = 'info@netficsolutions.com';
-// Sandbox de Resend: solo manda al email dueño de la cuenta hasta verificar dominio.
-// Una vez verificado netficsolutions.com en resend.com → DNS, cambiar a 'NetFic Web <hola@netficsolutions.com>'.
-const FROM_EMAIL = 'NetFic Web <onboarding@resend.dev>';
+// Dominio netficsolutions.com verificado en Resend → DNS Cloudflare.
+// Si querés otro sender (info@, contacto@, web@, noreply@), cambiá el local-part de abajo.
+const FROM_EMAIL = 'NetFic Web <hola@netficsolutions.com>';
 
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, (m) => ({
