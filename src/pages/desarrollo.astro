@@ -1,0 +1,327 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ContactCTA from "../components/ContactCTA.astro";
+
+const buildKinds = [
+  {
+    n: "01",
+    label: "Sistemas de gestión para empresas",
+    body: "Cafeterías, restaurantes, talleres, gimnasios, salones, retail. Punto de venta, control de inventario, agendas, cuentas de clientes y reportes — todo en una sola herramienta que tu equipo entiende rápido.",
+  },
+  {
+    n: "02",
+    label: "Sitios web institucionales",
+    body: "Sitios corporativos con CMS para que el equipo del cliente actualice contenido sin tocar código. SEO, performance y accesibilidad de base.",
+  },
+  {
+    n: "03",
+    label: "E-commerce",
+    body: "Tiendas en línea con catálogo, carrito, pagos locales (SINPE, tarjeta) y panel admin propio. Sin renta mensual a plataformas externas.",
+  },
+  {
+    n: "04",
+    label: "Aplicaciones internas + dashboards",
+    body: "Herramientas a medida para flujos que un Excel ya no resuelve, más tableros conectados a tus datos reales para decidir rápido.",
+  },
+  {
+    n: "05",
+    label: "Integraciones",
+    body: "Pegamento entre sistemas: CRMs, ERPs, contabilidad, pasarelas de pago, WhatsApp, Google Workspace. Que la información fluya sin re-tipeo.",
+  },
+  {
+    n: "06",
+    label: "Mantenimiento + soporte",
+    body: "Plan mensual de mantenimiento: monitoreo, actualizaciones, backups, atención de tickets y mejoras continuas.",
+  },
+];
+
+const stack = [
+  { area: "Web frontend", items: "Astro · React · TypeScript · Tailwind" },
+  { area: "Backend", items: "Node.js · Express · NestJS · PostgreSQL" },
+  { area: "Mobile", items: "Flutter · React Native (según el proyecto)" },
+  { area: "Infraestructura", items: "Render · Vercel · Cloudflare · Docker" },
+  { area: "Integraciones", items: "REST · GraphQL · webhooks · APIs locales (SINPE, Hacienda)" },
+];
+
+const process = [
+  {
+    n: "01",
+    title: "Levantamiento",
+    body: "Reunión inicial sin compromiso. Entendemos el problema real antes de cotizar. Si no somos el equipo correcto, lo decimos directo.",
+  },
+  {
+    n: "02",
+    title: "Prototipo",
+    body: "Antes de programar, validamos la forma de la solución. Maquetas, flujos o un MVP navegable según el caso. Iteramos hasta tener claridad.",
+  },
+  {
+    n: "03",
+    title: "Construcción",
+    body: "Avances visibles cada semana. El cliente prueba el producto en proceso, no espera al final para descubrir desviaciones.",
+  },
+  {
+    n: "04",
+    title: "Entrega + mantenimiento",
+    body: "Deploy, documentación, walkthrough técnico. Plan de mantenimiento opcional con soporte continuo, mejoras y actualizaciones.",
+  },
+];
+---
+
+<Layout
+  title="Desarrollo de software a medida — NetFic Solutions"
+  description="Sitios web, aplicaciones internas, dashboards e integraciones para empresas que necesitan herramientas digitales que se adapten a su flujo real."
+>
+  <section
+    class="container-craft pt-16 md:pt-24 pb-20 md:pb-28 border-b relative overflow-hidden"
+    style="border-color: var(--color-line);"
+  >
+    <div class="grid gap-12 lg:grid-cols-[1.5fr_1fr] lg:gap-16 lg:items-end">
+      <div>
+        <div class="flex items-center gap-3 reveal mb-6">
+          <span
+            class="inline-flex h-2 w-2 rounded-full"
+            style="background-color: var(--color-signal);"
+          ></span>
+          <span class="eyebrow" style="color: var(--color-signal); letter-spacing: 0.22em;">
+            05 · Desarrollo de software
+          </span>
+        </div>
+
+        <h1
+          class="display-hero reveal reveal-d1"
+          style="color: var(--color-ink); font-size: clamp(2.5rem, 7vw, 5.5rem);"
+        >
+          Software a medida<br />
+          para <span style="color: var(--color-signal);">tu operación</span>.
+        </h1>
+
+        <p
+          class="reveal reveal-d2 mt-8 max-w-[54ch]"
+          style="font-size: 1.15rem; line-height: 1.55; color: var(--color-ink-soft);"
+        >
+          Sistemas de gestión para cafeterías, talleres y retail. Sitios web. Apps internas. Integraciones. Construimos las herramientas digitales que tu negocio necesita — sin importar el tamaño.
+        </p>
+
+        <div class="reveal reveal-d3 mt-10 flex flex-wrap items-center gap-3">
+          <a
+            href="/contacto"
+            class="inline-flex items-center gap-2.5 px-6 py-[0.95rem] font-semibold text-[0.95rem] rounded-full transition-colors duration-200"
+            style="background-color: var(--color-signal); color: var(--color-paper); border: 1px solid var(--color-signal);"
+            onmouseover="this.style.backgroundColor='#3D58D6'; this.style.borderColor='#3D58D6'"
+            onmouseout="this.style.backgroundColor='var(--color-signal)'; this.style.borderColor='var(--color-signal)'"
+          >
+            Hablar de un proyecto
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="#que-construimos" class="btn-ghost">
+            Ver qué construimos
+          </a>
+        </div>
+      </div>
+
+      <aside class="reveal reveal-d2 lg:pb-2">
+        <div
+          class="p-7 md:p-8 rounded-2xl"
+          style="background-color: var(--color-paper-2); border: 1px solid var(--color-line);"
+        >
+          <div
+            class="text-[0.7rem] uppercase font-bold mb-5"
+            style="letter-spacing: 0.22em; color: var(--color-signal);"
+          >
+            Conocer más
+          </div>
+          <p class="text-[1rem] leading-relaxed" style="color: var(--color-ink-soft);">
+            Para ver el detalle de la línea de desarrollo — proyectos previos, stack en profundidad y casos de estudio reales — visitá el portafolio del lead de desarrollo.
+          </p>
+          <a
+            href="https://xnjaca.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-6 inline-flex items-center gap-2 text-[0.95rem] font-semibold transition-transform duration-200 hover:translate-x-1"
+            style="color: var(--color-signal);"
+          >
+            xnjaca.com
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section
+    id="que-construimos"
+    class="container-craft py-20 md:py-28 border-b"
+    style="border-color: var(--color-line);"
+  >
+    <div class="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16 mb-14 md:mb-20">
+      <div class="reveal">
+        <div class="eyebrow mb-4">Qué construimos</div>
+        <h2 class="display-xl" style="color: var(--color-ink);">
+          Seis tipos<br />
+          de <span style="color: var(--color-signal);">proyecto</span>.
+        </h2>
+      </div>
+      <p
+        class="reveal reveal-d1 text-[1.0625rem] leading-relaxed self-end max-w-[60ch]"
+        style="color: var(--color-ink-soft);"
+      >
+        Nuestra línea de software cubre seis tipos de proyecto. Algunos clientes contratan un solo entregable, otros nos dejan la operación digital completa con un plan de mantenimiento mensual.
+      </p>
+    </div>
+
+    <div class="grid gap-x-12 gap-y-10 md:grid-cols-2">
+      {buildKinds.map((b, i) => (
+        <div class={`pt-7 border-t reveal reveal-d${(i % 4) + 1}`} style="border-color: var(--color-line);">
+          <div
+            class="tabular-nums leading-none mb-5"
+            style="font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: var(--color-signal); letter-spacing: -0.03em;"
+          >
+            {b.n}
+          </div>
+          <h3 class="display-l mb-3" style="font-size: 1.375rem; color: var(--color-ink);">
+            {b.label}
+          </h3>
+          <p class="text-[0.975rem] leading-relaxed max-w-[42ch]" style="color: var(--color-ink-soft);">
+            {b.body}
+          </p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section
+    class="border-b"
+    style="border-color: var(--color-line); background-color: var(--color-paper-2);"
+  >
+    <div class="container-craft py-20 md:py-28">
+      <div class="mb-14 md:mb-20 reveal">
+        <div class="eyebrow mb-4">Cómo trabajamos</div>
+        <h2 class="display-xl max-w-[24ch]" style="color: var(--color-ink);">
+          Cuatro pasos. <span style="color: var(--color-signal);">Sin sorpresas.</span>
+        </h2>
+      </div>
+
+      <ol class="grid gap-10 lg:grid-cols-4 lg:gap-8">
+        {process.map((p, i) => (
+          <li class={`reveal reveal-d${i + 1}`}>
+            <div
+              class="flex items-center gap-3 mb-5 pb-4 border-b"
+              style="border-color: var(--color-line);"
+            >
+              <span
+                class="tabular-nums leading-none"
+                style="font-family: var(--font-display); font-weight: 700; font-size: 1.875rem; color: var(--color-signal); letter-spacing: -0.03em;"
+              >
+                {p.n}
+              </span>
+              <h3 class="display-l" style="font-size: 1.25rem; color: var(--color-ink);">
+                {p.title}
+              </h3>
+            </div>
+            <p class="text-[0.95rem] leading-relaxed" style="color: var(--color-ink-soft);">
+              {p.body}
+            </p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section
+    class="border-b"
+    style="border-color: var(--color-line); background-color: var(--color-ink); color: var(--color-paper);"
+  >
+    <div class="container-craft py-20 md:py-28">
+      <div class="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+        <div class="reveal">
+          <div
+            class="text-[0.7rem] uppercase font-bold mb-5"
+            style="letter-spacing: 0.22em; color: var(--color-signal);"
+          >
+            Stack
+          </div>
+          <h2 class="display-xl" style="color: var(--color-paper); font-size: clamp(2rem, 4.5vw, 3.5rem);">
+            Stack moderno,<br />
+            decisión por <span style="color: var(--color-signal);">contexto</span>.
+          </h2>
+          <p class="mt-7 max-w-[44ch] text-[1.0625rem] leading-relaxed" style="color: rgba(250,250,247,0.78);">
+            No casamos al cliente con una tecnología por moda. Elegimos el stack que mejor encaja con el problema, el equipo del cliente y el plan a largo plazo.
+          </p>
+        </div>
+
+        <dl class="reveal reveal-d1 divide-y" style="border-color: rgba(250,250,247,0.18);">
+          {stack.map((s, i) => (
+            <div class={`grid gap-3 md:grid-cols-[180px_1fr] py-5 ${i === 0 ? "" : "border-t"}`} style="border-color: rgba(250,250,247,0.18);">
+              <dt
+                class="text-[0.78rem] uppercase font-bold"
+                style="letter-spacing: 0.16em; color: rgba(250,250,247,0.55);"
+              >
+                {s.area}
+              </dt>
+              <dd class="text-[1rem]" style="color: var(--color-paper);">
+                {s.items}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-craft py-20 md:py-28 border-b" style="border-color: var(--color-line);">
+    <div class="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+      <div class="reveal">
+        <div class="eyebrow mb-4">Para quién</div>
+        <h2 class="display-xl" style="color: var(--color-ink);">
+          ¿Encaja este servicio<br />
+          con tu <span style="color: var(--color-signal);">caso</span>?
+        </h2>
+      </div>
+      <ul class="reveal reveal-d1 space-y-6 self-center">
+        {[
+          {
+            title: "Negocios locales",
+            body: "Cafeterías, restaurantes, talleres, gimnasios, salones. Que llevan su operación en cuaderno o Excel y ya merecen un sistema propio adaptado a su flujo.",
+          },
+          {
+            title: "Founders + PyMEs",
+            body: "Que necesitan una primera versión seria del producto sin armar un equipo de planta.",
+          },
+          {
+            title: "Equipos internos",
+            body: "Que tienen un proceso clave en hojas de cálculo o WhatsApp y ya merece una herramienta dedicada.",
+          },
+          {
+            title: "Empresas con sistemas que no hablan",
+            body: "CRM por un lado, contabilidad por otro, planilla en una tercera plataforma. Los integramos.",
+          },
+        ].map((c, i) => (
+          <li class="grid grid-cols-[44px_1fr] gap-5 items-start pt-5 border-t" style="border-color: var(--color-line);">
+            <span
+              class="tabular-nums leading-none"
+              style="font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--color-signal); letter-spacing: -0.02em;"
+            >
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div>
+              <h3 class="display-l mb-2" style="font-size: 1.125rem; color: var(--color-ink);">
+                {c.title}
+              </h3>
+              <p class="text-[0.95rem] leading-relaxed" style="color: var(--color-ink-soft);">
+                {c.body}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <ContactCTA />
+</Layout>

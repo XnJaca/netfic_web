@@ -1,0 +1,106 @@
+---
+const principles = [
+  {
+    label: "Diseño antes que cable",
+    body: "Cada proyecto comienza con un levantamiento físico — no con un PDF genérico. Lo que se cotiza es lo que se instala.",
+  },
+  {
+    label: "Documentación entregada",
+    body: "Plano de rack, etiquetado de puntos, fichas técnicas y reporte de certificación al cierre. Sin caja negra.",
+  },
+  {
+    label: "Mantenimiento sostenido",
+    body: "El soporte sigue después del corte de cinta. Tickets atendidos en el día, no escalados a un call center fuera del país.",
+  },
+];
+---
+
+<section
+  id="sobre-netfic"
+  class="border-t"
+  style="border-color: var(--color-line); background-color: var(--color-paper-2);"
+>
+  <div class="container-craft py-24 md:py-32">
+    <div class="grid gap-12 lg:grid-cols-[1.5fr_1fr] lg:gap-20 items-start">
+      <div class="reveal">
+        <div class="eyebrow mb-4">03 · Sobre NetFic</div>
+        <h2 class="display-xl" style="color: var(--color-ink);">
+          Diez años haciendo<br />
+          que la red <span class="mark-spark">funcione</span>.
+        </h2>
+        <div class="mt-9 space-y-5 max-w-[58ch] text-[1.0625rem] leading-relaxed" style="color: var(--color-ink-soft);">
+          <p>
+            NetFic Solutions opera dos líneas. La principal — infraestructura tecnológica: redes, fibra, CCTV, centrales IP, eléctrico, climatización — tiene una década de historial en el campo costarricense.
+          </p>
+          <p>
+            La segunda — <strong style="color: var(--color-signal); font-weight: 600;">desarrollo de software a medida</strong> — es más joven y la lideramos internamente. Misma manera de trabajar: levantamiento real, entrega documentada, mantenimiento sostenido.
+          </p>
+        </div>
+
+        <div class="mt-10">
+          <a
+            href="/sobre-netfic"
+            class="inline-flex items-center gap-2 text-[0.95rem] font-semibold border-b-2 pb-0.5 transition-colors"
+            style="color: var(--color-ink); border-color: var(--color-spark);"
+          >
+            Conocer al equipo
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal reveal-d1 relative">
+        <figure
+          class="relative overflow-hidden"
+          style="aspect-ratio: 3 / 4; border-radius: 14px;"
+        >
+          <img
+            src="/banner_home.png"
+            alt="Detalle de instalación eléctrica en obra"
+            loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+          <div
+            class="absolute bottom-4 left-4 right-4 px-4 py-3 rounded-lg"
+            style="background-color: rgba(14, 15, 14, 0.78); color: var(--color-paper); backdrop-filter: blur(6px);"
+          >
+            <div class="eyebrow" style="color: var(--color-brand); font-size: 0.6rem;">
+              Detalle
+            </div>
+            <div
+              class="mt-0.5 text-[0.9rem] font-semibold"
+              style="font-family: var(--font-display); letter-spacing: -0.02em;"
+            >
+              Panel eléctrico · cliente comercial
+            </div>
+          </div>
+        </figure>
+      </div>
+    </div>
+
+    <div class="mt-20 md:mt-28 grid gap-8 md:grid-cols-3 border-t pt-12" style="border-color: var(--color-line);">
+      {principles.map((p, i) => (
+        <div class={`reveal reveal-d${i + 1}`}>
+          <div
+            class="tabular-nums leading-none mb-5"
+            style="font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: var(--color-brand-deep); letter-spacing: -0.03em;"
+          >
+            0{i + 1}
+          </div>
+          <h3
+            class="display-l mb-3"
+            style="font-size: 1.25rem; color: var(--color-ink);"
+          >
+            {p.label}
+          </h3>
+          <p class="text-[0.95rem] leading-relaxed max-w-[42ch]" style="color: var(--color-ink-soft);">
+            {p.body}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

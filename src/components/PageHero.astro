@@ -1,0 +1,43 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  highlight?: string;
+  highlightColor?: "brand" | "spark" | "signal";
+  body?: string;
+}
+
+const { eyebrow, title, highlight, highlightColor = "spark", body } = Astro.props;
+
+const highlightStyle =
+  highlightColor === "brand"
+    ? "color: var(--color-brand-deep);"
+    : highlightColor === "signal"
+      ? "color: var(--color-signal);"
+      : "background-color: var(--color-spark); color: var(--color-ink); padding: 0 0.1em 0.04em; border-radius: 4px; box-decoration-break: clone; -webkit-box-decoration-break: clone;";
+---
+
+<section class="container-craft pt-16 md:pt-24 pb-16 md:pb-20 border-b" style="border-color: var(--color-line);">
+  <div class="max-w-[64ch]">
+    <div class="eyebrow reveal">{eyebrow}</div>
+    <h1
+      class="display-hero mt-6 reveal reveal-d1"
+      style="color: var(--color-ink); font-size: clamp(2.5rem, 7vw, 5.5rem);"
+    >
+      {title}
+      {highlight && (
+        <>
+          {" "}<span style={highlightStyle}>{highlight}</span>
+        </>
+      )}
+    </h1>
+    {body && (
+      <p
+        class="mt-8 max-w-[58ch] reveal reveal-d2"
+        style="font-size: 1.125rem; line-height: 1.55; color: var(--color-ink-soft);"
+      >
+        {body}
+      </p>
+    )}
+  </div>
+</section>

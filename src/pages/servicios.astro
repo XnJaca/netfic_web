@@ -1,143 +1,168 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Services from "../components/Services.astro";
-import Testimonials from "../components/Testimonials.astro";
+import PageHero from "../components/PageHero.astro";
+import ContactCTA from "../components/ContactCTA.astro";
+
+const services = [
+  {
+    number: "01",
+    name: "Redes Wi-Fi enterprise",
+    body: "Diseño, instalación y configuración de redes inalámbricas de alto rendimiento — site survey, APs enterprise, segmentación VLAN, sistemas de gestión centralizada.",
+    image: "/redes_inalambricas.png",
+    href: "/servicios/redes-inalambricas",
+    bullets: ["Análisis de cobertura", "WPA3 + segmentación", "Roaming sin cortes"],
+    tag: "Más solicitado",
+  },
+  {
+    number: "02",
+    name: "Cableado estructurado",
+    body: "Categoría 6 y 6A certificado, racks ordenados, paneles de parcheo etiquetados y reportes de certificación por punto.",
+    image: "/cableado_estructurado.png",
+    href: "/servicios/cableado-estructurado",
+    bullets: ["Cat 6 / 6A", "Certificación por punto", "Documentación de rack"],
+  },
+  {
+    number: "03",
+    name: "Fibra óptica",
+    body: "Tendido y fusionado de fibra para enlace entre edificios, backbone interno o instalación de ISP local. Pruebas OTDR y fichas técnicas.",
+    image: "/fibra_optica.png",
+    href: "/servicios/fibra-optica",
+    bullets: ["Fusionado certificado", "Pruebas OTDR", "Enlaces punto-a-punto"],
+  },
+  {
+    number: "04",
+    name: "Videovigilancia CCTV",
+    body: "Cámaras IP de última generación, NVR con grabación local + nube, acceso remoto desde cualquier dispositivo y analítica de eventos.",
+    image: "/cctv1.png",
+    href: "/servicios/videovigilancia",
+    bullets: ["Cámaras IP 4K", "Acceso remoto", "Grabación híbrida"],
+  },
+  {
+    number: "05",
+    name: "Centrales telefónicas IP",
+    body: "Centrales VoIP modernas, troncales SIP, integración con CRM y reportes de llamadas. Para empresas que dejan atrás la telefonía analógica.",
+    image: "/switch_red.png",
+    href: "/servicios/centrales-telefonicas",
+    bullets: ["VoIP + SIP", "Integración CRM", "Reportes de tráfico"],
+  },
+  {
+    number: "06",
+    name: "Instalaciones eléctricas",
+    body: "Residencial y comercial. Tableros, UPS, puesta a tierra, iluminación y proyectos eléctricos completos con planos certificados.",
+    image: "/ups.png",
+    href: "/servicios/instalaciones-electricas",
+    bullets: ["Tableros + UPS", "Puesta a tierra", "Planos certificados"],
+  },
+  {
+    number: "07",
+    name: "Aires acondicionados",
+    body: "Venta, instalación, reparación y mantenimiento. Mini split, multi split y central. Marcas con respaldo regional y garantía extendida.",
+    image: "/aire_acondicionado.png",
+    href: "/servicios/aires-acondicionados",
+    bullets: ["Mini / Multi / Central", "Mantenimiento preventivo", "Garantía extendida"],
+    tag: "Nuevo",
+  },
+  {
+    number: "08",
+    name: "Venta de equipos",
+    body: "Distribución de equipos y accesorios de telecomunicaciones, seguridad y redes de las mejores marcas — con garantía y soporte directo.",
+    image: "/access_point.png",
+    href: "/servicios/venta-equipos",
+    bullets: ["Equipo enterprise", "Garantía oficial", "Soporte directo"],
+  },
+];
 ---
 
 <Layout
-    title="Servicios | NETFIC SOLUTIONS"
-    description="Descubre nuestros servicios de desarrollo web, aplicaciones móviles, consultoría IT y marketing digital."
+  title="Servicios — NetFic Solutions"
+  description="Ocho líneas de servicio: redes Wi-Fi, cableado estructurado, fibra óptica, CCTV, centrales IP, eléctrico, A/C y venta de equipos."
 >
-    <!-- Hero Section -->
-    <div
-        class="relative pt-16 pb-24 flex content-center items-center justify-center"
-        style="min-height: 40vh;"
-    >
-        <div
-            class="absolute top-0 w-full h-full bg-center bg-cover"
-            style="background-image: url('/servicios-bg.png');"
-        >
-            <span
-                id="blackOverlay"
-                class="w-full h-full absolute opacity-75 bg-black"></span>
-        </div>
-        <div class="container relative mx-auto">
-            <div class="items-center flex flex-wrap">
-                <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
-                    <h1 class="text-white font-semibold text-5xl mb-2">
-                        Nuestros Servicios
-                    </h1>
-                    <p class="mt-4 text-lg text-gray-200">
-                        Soluciones tecnológicas adaptadas a las necesidades de
-                        tu negocio
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+  <PageHero
+    eyebrow="02 · Servicios"
+    title="Ocho líneas."
+    highlight="Un solo equipo."
+    highlightColor="brand"
+    body="No subcontratamos lo que pueda hacer alguien de la casa. Cada instalación la corre alguien que conoce el equipo, la norma y el contexto del cliente."
+  />
 
-    <!-- Services Navigation -->
-    <div class="py-8 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-semibold text-gray-800 text-center mb-6">
-                Explora nuestros servicios
-            </h2>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a
-                    href="/servicios/redes-inalambricas"
-                    class="bg-white px-4 py-2 rounded-full shadow-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
-                    >Redes Inalámbricas</a
-                >
-                <a
-                    href="/servicios/cableado-estructurado"
-                    class="bg-white px-4 py-2 rounded-full shadow-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
-                    >Cableado Estructurado</a
-                >
-                <a
-                    href="/servicios/fibra-optica"
-                    class="bg-white px-4 py-2 rounded-full shadow-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
-                    >Fibra Óptica</a
-                >
-                <a
-                    href="/servicios/videovigilancia"
-                    class="bg-white px-4 py-2 rounded-full shadow-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
-                    >Videovigilancia</a
-                >
-                <a
-                    href="/servicios/centrales-telefonicas"
-                    class="bg-white px-4 py-2 rounded-full shadow-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
-                    >Centrales Telefónicas</a
-                >
-                <a
-                    href="/servicios/instalaciones-electricas"
-                    class="bg-white px-4 py-2 rounded-full shadow-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
-                    >Instalaciones Eléctricas</a
-                >
-                <a
-                    href="/servicios/venta-equipos"
-                    class="bg-white px-4 py-2 rounded-full shadow-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
-                    >Venta de Equipos</a
-                >
-                <a
-                    href="/servicios/aires-acondicionados"
-                    class="bg-white px-4 py-2 rounded-full shadow-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors relative"
-                >
-                    Aires Acondicionados
-                    <span
-                        class="absolute -top-2 -right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full"
-                        >NUEVO</span
-                    >
-                </a>
+  <section class="container-craft py-16 md:py-20">
+    <div class="flex flex-col">
+      {services.map((service, i) => {
+        const reversed = i % 2 === 1;
+        return (
+          <a
+            href={service.href}
+            class={`group grid gap-8 lg:grid-cols-[88px_1.2fr_1fr] lg:gap-12 py-14 md:py-20 border-b transition-colors duration-200 reveal reveal-d${Math.min((i % 4) + 1, 4)}`}
+            style="border-color: var(--color-line);"
+          >
+            <div
+              class="tabular-nums leading-none self-start"
+              style="font-family: var(--font-display); font-weight: 700; font-size: clamp(2.5rem, 4vw, 3.5rem); letter-spacing: -0.04em; color: var(--color-brand-deep);"
+            >
+              {service.number}
             </div>
-        </div>
-    </div>
-    <!-- Services Section -->
-    <Services />
-    <!-- Testimonials Section -->
-    <Testimonials
-        testimonials={[
-            {
-                name: "Carlos Rodríguez",
-                role: "Director de IT",
-                company: "Tecnología Aplicada S.A.",
-                content:
-                    "NetFic Solutions implementó toda nuestra infraestructura de red con un nivel de profesionalismo excepcional. El proyecto se completó en tiempo récord y la calidad es inmejorable.",
-            },
-            {
-                name: "María Fernández",
-                role: "Gerente General",
-                company: "Corporación MFG",
-                content:
-                    "La instalación del sistema de videovigilancia excedió nuestras expectativas. El equipo de NetFic Solutions estuvo atento a cada detalle y nos brindó una capacitación completa.",
-            },
-            {
-                name: "Roberto Sánchez",
-                role: "Propietario",
-                company: "Centro Médico San Rafael",
-                content:
-                    "Desde que implementamos las soluciones de red y telefonía IP de NetFic Solutions, nuestros procesos son mucho más eficientes y hemos reducido costos operativos significativamente.",
-            },
-        ]}
-    />
 
-    <!-- Call to Action Section -->
-    <div class="py-16 bg-indigo-700">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold text-white sm:text-4xl">
-                ¿Necesitas una solución personalizada?
-            </h2>
-            <p class="mt-4 max-w-2xl mx-auto text-xl text-indigo-100">
-                Nuestro equipo de expertos está listo para analizar tus
-                necesidades y diseñar la solución ideal para tu proyecto.
-            </p>
-            <div class="mt-8 flex justify-center">
-                <a
-                    href="/contacto"
-                    class="bg-white text-indigo-700 hover:bg-gray-100 text-lg font-medium px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition duration-300"
+            <div class={`${reversed ? "lg:order-3" : ""}`}>
+              <div class="flex items-baseline gap-3 mb-3">
+                <h2
+                  class="display-xl"
+                  style="font-size: clamp(1.875rem, 3.6vw, 2.75rem); color: var(--color-ink); line-height: 1;"
                 >
-                    Solicitar una consulta gratuita
-                </a>
+                  {service.name}
+                </h2>
+                {service.tag && (
+                  <span
+                    class="text-[0.65rem] uppercase font-bold px-2.5 py-1 rounded-full shrink-0 self-center"
+                    style={`letter-spacing: 0.1em; background-color: var(--color-spark); color: var(--color-ink);`}
+                  >
+                    {service.tag}
+                  </span>
+                )}
+              </div>
+              <p
+                class="text-[1.0625rem] leading-relaxed max-w-[54ch] mb-6"
+                style="color: var(--color-ink-soft);"
+              >
+                {service.body}
+              </p>
+              <ul class="flex flex-wrap gap-2 mb-7">
+                {service.bullets.map((b) => (
+                  <li
+                    class="text-[0.8rem] px-3 py-1.5 rounded-full"
+                    style="background-color: var(--color-paper-2); color: var(--color-ink-soft); border: 1px solid var(--color-line);"
+                  >
+                    {b}
+                  </li>
+                ))}
+              </ul>
+              <div
+                class="inline-flex items-center gap-2 text-[0.9rem] font-semibold transition-transform duration-200 group-hover:translate-x-1"
+                style="color: var(--color-ink); border-bottom: 2px solid var(--color-spark); padding-bottom: 2px;"
+              >
+                Ver detalle del servicio
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </div>
             </div>
-        </div>
+
+            <div
+              class={`relative overflow-hidden self-center ${reversed ? "lg:order-2" : ""}`}
+              style="aspect-ratio: 4 / 3; background-color: var(--color-paper-2); border-radius: 14px;"
+            >
+              <img
+                src={service.image}
+                alt={service.name}
+                loading="lazy"
+                class="absolute inset-0 h-full w-full object-contain p-10 transition-transform duration-500 group-hover:scale-[1.04]"
+              />
+            </div>
+          </a>
+        );
+      })}
     </div>
+  </section>
+
+  <ContactCTA />
 </Layout>

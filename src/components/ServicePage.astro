@@ -1,0 +1,173 @@
+---
+import type { Service } from "../data/services";
+import ContactCTA from "./ContactCTA.astro";
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+---
+
+<section class="container-craft pt-16 md:pt-24 pb-12 md:pb-16 border-b" style="border-color: var(--color-line);">
+  <div class="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16 lg:items-end">
+    <div>
+      <div class="flex items-center gap-3 reveal mb-6">
+        <span
+          class="tabular-nums leading-none"
+          style="font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; letter-spacing: -0.03em; color: var(--color-brand-deep);"
+        >
+          {service.number}
+        </span>
+        <span class="opacity-30" style="color: var(--color-ink);">·</span>
+        <span class="eyebrow">Servicios</span>
+        {service.isNew && (
+          <>
+            <span class="opacity-30" style="color: var(--color-ink);">·</span>
+            <span
+              class="text-[0.65rem] uppercase font-bold px-2.5 py-1 rounded-full"
+              style="letter-spacing: 0.1em; background-color: var(--color-spark); color: var(--color-ink);"
+            >
+              Nuevo
+            </span>
+          </>
+        )}
+      </div>
+
+      <h1 class="display-hero reveal reveal-d1" style="color: var(--color-ink); font-size: clamp(2.5rem, 6.5vw, 5rem);">
+        {service.name}
+      </h1>
+
+      <p
+        class="mt-8 max-w-[44ch] reveal reveal-d2"
+        style="font-size: 1.25rem; line-height: 1.4; color: var(--color-ink); font-weight: 500;"
+      >
+        {service.tagline}
+      </p>
+
+      <div class="reveal reveal-d3 mt-9 flex flex-wrap gap-3">
+        <a href="/contacto" class="btn-primary">
+          Solicitar cotización
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a href="/servicios" class="btn-ghost">
+          Volver a servicios
+        </a>
+      </div>
+    </div>
+
+    <div class="reveal reveal-d2 relative">
+      <figure
+        class="relative overflow-hidden"
+        style="aspect-ratio: 4 / 3; background-color: var(--color-paper-2); border-radius: 16px;"
+      >
+        <img
+          src={service.image}
+          alt={service.name}
+          class="absolute inset-0 h-full w-full object-contain p-10"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="container-craft py-20 md:py-28 border-b" style="border-color: var(--color-line);">
+  <div class="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+    <div class="reveal">
+      <div class="eyebrow mb-4">El contexto</div>
+      <h2 class="display-l" style="font-size: clamp(1.625rem, 3vw, 2.25rem); color: var(--color-ink);">
+        ¿Qué incluye este servicio?
+      </h2>
+    </div>
+    <p
+      class="reveal reveal-d1 text-[1.0625rem] leading-relaxed"
+      style="color: var(--color-ink-soft); max-width: 62ch;"
+    >
+      {service.intro}
+    </p>
+  </div>
+</section>
+
+<section class="container-craft py-20 md:py-28 border-b" style="border-color: var(--color-line); background-color: var(--color-paper-2);">
+  <div class="mb-12 md:mb-16 reveal">
+    <div class="eyebrow mb-4">Lo que hacemos</div>
+    <h2 class="display-xl max-w-[22ch]" style="color: var(--color-ink);">
+      Características principales.
+    </h2>
+  </div>
+
+  <ul class="grid gap-x-12 gap-y-7 md:grid-cols-2 max-w-[1100px]">
+    {service.features.map((f, i) => (
+      <li class={`flex items-start gap-4 reveal reveal-d${(i % 4) + 1} pt-5 border-t`} style="border-color: var(--color-line);">
+        <span
+          class="tabular-nums leading-none shrink-0"
+          style="font-family: var(--font-display); font-weight: 700; font-size: 1.125rem; color: var(--color-brand-deep); letter-spacing: -0.02em; min-width: 2rem;"
+        >
+          {String(i + 1).padStart(2, "0")}
+        </span>
+        <span class="text-[1rem] leading-relaxed" style="color: var(--color-ink);">{f}</span>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<section class="container-craft py-20 md:py-28 border-b" style="border-color: var(--color-line);">
+  <div class="mb-12 md:mb-16 reveal">
+    <div class="eyebrow mb-4">Lo que el cliente gana</div>
+    <h2 class="display-xl max-w-[20ch]" style="color: var(--color-ink);">
+      Beneficios <span class="mark-brand">concretos</span>.
+    </h2>
+  </div>
+  <ul class="grid gap-x-12 gap-y-6 md:grid-cols-2 max-w-[1100px]">
+    {service.benefits.map((b, i) => (
+      <li class={`flex items-start gap-3.5 reveal reveal-d${(i % 4) + 1}`}>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" style="color: var(--color-brand);">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span class="text-[1rem] leading-relaxed" style="color: var(--color-ink-soft);">{b}</span>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<section class="container-craft py-20 md:py-28 border-b" style="border-color: var(--color-line); background-color: var(--color-paper-2);">
+  <div class="mb-12 md:mb-14 reveal">
+    <div class="eyebrow mb-4">Servicios relacionados</div>
+    <h2 class="display-l" style="font-size: clamp(1.625rem, 3vw, 2.25rem); color: var(--color-ink);">
+      Lo que suele ir junto.
+    </h2>
+  </div>
+  <div class="grid gap-px md:grid-cols-3 border-t" style="border-color: var(--color-line);">
+    {service.related.map((r, i) => (
+      <a
+        href={`/servicios/${r.slug}`}
+        class={`group p-7 md:p-8 transition-colors duration-200 reveal reveal-d${i + 1}`}
+        style="background-color: var(--color-paper);"
+      >
+        <h3 class="display-l mb-3" style="font-size: 1.25rem; color: var(--color-ink);">
+          {r.name}
+        </h3>
+        <p class="text-[0.95rem] leading-relaxed mb-5" style="color: var(--color-ink-soft);">
+          {r.teaser}
+        </p>
+        <div
+          class="inline-flex items-center gap-2 text-[0.85rem] font-semibold transition-transform duration-200 group-hover:translate-x-1"
+          style="color: var(--color-spark-deep);"
+        >
+          Ver detalle
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<ContactCTA />

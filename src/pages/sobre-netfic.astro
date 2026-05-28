@@ -1,0 +1,202 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import ContactCTA from "../components/ContactCTA.astro";
+
+const principles = [
+  {
+    n: "01",
+    label: "Experiencia comprobada",
+    body: "Más de 10 años instalando y manteniendo redes, sistemas de seguridad, climatización y telecomunicaciones para clientes residenciales y corporativos en Costa Rica.",
+  },
+  {
+    n: "02",
+    label: "Equipo técnico certificado",
+    body: "Técnicos con certificación en redes, fibra óptica, sistemas de seguridad y climatización. Capacitación continua en cada tecnología nueva del catálogo.",
+  },
+  {
+    n: "03",
+    label: "Materiales con garantía",
+    body: "Solo usamos equipos y materiales de fabricantes serios con respaldo regional. Cada instalación deja el rastro documental de qué se compró y dónde.",
+  },
+  {
+    n: "04",
+    label: "Servicio integral",
+    body: "Desde el diseño y la cotización hasta la instalación, el handover documentado y el mantenimiento posterior. Sin saltos en la responsabilidad.",
+  },
+];
+
+const valores = [
+  "Calidad en cada instalación",
+  "Puntualidad en entregas",
+  "Seguridad en cada proyecto",
+  "Honestidad con los clientes",
+  "Servicio postventa garantizado",
+];
+---
+
+<Layout
+  title="Sobre NetFic — Servicios tecnológicos en Costa Rica"
+  description="Diez años en el campo costarricense. Empresa de servicios tecnológicos: infraestructura + desarrollo de software a medida."
+>
+  <PageHero
+    eyebrow="03 · Sobre NetFic"
+    title="Diez años haciendo que la red"
+    highlight="funcione."
+    highlightColor="spark"
+    body="Empresa de servicios tecnológicos en Costa Rica. Combinamos infraestructura — redes, fibra, CCTV, centrales IP, eléctrico, A/C — con desarrollo de software a medida, que lideramos internamente."
+  />
+
+  <section class="container-craft py-20 md:py-28 border-b" style="border-color: var(--color-line);">
+    <div class="grid gap-12 lg:grid-cols-[1.5fr_1fr] lg:gap-20 items-start">
+      <div class="reveal">
+        <div class="eyebrow mb-4">Nuestra forma de trabajar</div>
+        <h2 class="display-xl" style="color: var(--color-ink);">
+          Antes del cable,<br />
+          el <span class="mark-brand">levantamiento</span>.
+        </h2>
+        <div class="mt-8 space-y-5 max-w-[60ch] text-[1.0625rem] leading-relaxed" style="color: var(--color-ink-soft);">
+          <p>
+            Cada proyecto arranca con una visita técnica al sitio. Medimos cobertura, identificamos puntos de instalación, validamos la infraestructura existente y entregamos una cotización específica para lo que vimos. Sin templates genéricos.
+          </p>
+          <p>
+            Durante la obra, el cliente recibe avances medibles. Al cierre, el handoff incluye plano de rack, etiquetado, fichas técnicas de los equipos instalados y reportes de certificación cuando aplican.
+          </p>
+          <p>
+            El soporte continúa después. Mantenimiento mensual, atención de tickets en el día y registro centralizado del historial de cada cliente.
+          </p>
+        </div>
+      </div>
+
+      <div class="reveal reveal-d1">
+        <figure
+          class="relative overflow-hidden mb-4"
+          style="aspect-ratio: 3 / 4; border-radius: 14px;"
+        >
+          <img
+            src="/about_1.jpeg"
+            alt="Técnico de NetFic en sitio en Guanacaste"
+            loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+        </figure>
+        <figure
+          class="relative overflow-hidden"
+          style="aspect-ratio: 16 / 9; border-radius: 14px;"
+        >
+          <img
+            src="/banner_home.png"
+            alt="Detalle de instalación eléctrica"
+            loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-craft py-20 md:py-28 border-b" style="border-color: var(--color-line); background-color: var(--color-paper-2);">
+    <div class="mb-14 md:mb-20 reveal">
+      <div class="eyebrow mb-4">Cuatro principios</div>
+      <h2 class="display-xl max-w-[18ch]" style="color: var(--color-ink);">
+        Lo que el cliente recibe <span class="mark-brand">además del cable</span>.
+      </h2>
+    </div>
+    <div class="grid gap-x-12 gap-y-12 md:grid-cols-2">
+      {principles.map((p, i) => (
+        <div class={`reveal reveal-d${(i % 4) + 1} pt-6 border-t`} style="border-color: var(--color-line);">
+          <div
+            class="tabular-nums leading-none mb-5"
+            style="font-family: var(--font-display); font-weight: 700; font-size: 1.625rem; color: var(--color-brand-deep); letter-spacing: -0.03em;"
+          >
+            {p.n}
+          </div>
+          <h3 class="display-l mb-3" style="font-size: 1.5rem; color: var(--color-ink);">
+            {p.label}
+          </h3>
+          <p class="text-[0.975rem] leading-relaxed max-w-[44ch]" style="color: var(--color-ink-soft);">
+            {p.body}
+          </p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-b" style="border-color: var(--color-line);">
+    <div class="container-craft py-14 md:py-16">
+      <a
+        href="/desarrollo"
+        class="group flex flex-col md:flex-row md:items-center justify-between gap-6 py-5 reveal"
+      >
+        <div class="flex items-start gap-4">
+          <span
+            class="inline-flex h-2 w-2 rounded-full mt-3 shrink-0"
+            style="background-color: var(--color-signal);"
+          ></span>
+          <div>
+            <div
+              class="text-[0.7rem] uppercase font-bold mb-2"
+              style="letter-spacing: 0.22em; color: var(--color-signal);"
+            >
+              Segunda línea
+            </div>
+            <h3
+              class="display-l"
+              style="font-size: clamp(1.375rem, 2.6vw, 1.875rem); color: var(--color-ink); line-height: 1.1;"
+            >
+              También hacemos <span style="color: var(--color-signal);">desarrollo de software a medida</span>.
+            </h3>
+          </div>
+        </div>
+        <span
+          class="inline-flex items-center gap-2 text-[0.9rem] font-semibold transition-transform duration-200 group-hover:translate-x-1 shrink-0 self-end md:self-center"
+          style="color: var(--color-signal);"
+        >
+          Ver la línea
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <section class="container-craft py-20 md:py-28">
+    <div class="grid gap-12 lg:grid-cols-3 lg:gap-12">
+      <div class="reveal">
+        <div class="eyebrow mb-3">Nuestra misión</div>
+        <h3 class="display-l mb-4" style="font-size: 1.5rem; color: var(--color-ink);">
+          Infraestructura tecnológica que mejora el día a día.
+        </h3>
+        <p class="text-[0.975rem] leading-relaxed" style="color: var(--color-ink-soft);">
+          Proporcionar soluciones tecnológicas confiables en conectividad, telecomunicaciones y climatización, con instalaciones de calidad que mejoran la infraestructura tecnológica de hogares y empresas.
+        </p>
+      </div>
+      <div class="reveal reveal-d1">
+        <div class="eyebrow mb-3">Nuestra visión</div>
+        <h3 class="display-l mb-4" style="font-size: 1.5rem; color: var(--color-ink);">
+          Ser referencia en servicios técnicos en Costa Rica.
+        </h3>
+        <p class="text-[0.975rem] leading-relaxed" style="color: var(--color-ink-soft);">
+          Reconocidos como la empresa líder en instalación y mantenimiento de redes, sistemas de seguridad y climatización, distinguida por excelencia técnica y atención al cliente.
+        </p>
+      </div>
+      <div class="reveal reveal-d2">
+        <div class="eyebrow mb-3">Nuestros valores</div>
+        <ul class="space-y-2.5 text-[0.975rem] leading-relaxed" style="color: var(--color-ink-soft);">
+          {valores.map((v) => (
+            <li class="flex items-start gap-2.5">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-1 shrink-0" style="color: var(--color-brand);">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>{v}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <ContactCTA />
+</Layout>

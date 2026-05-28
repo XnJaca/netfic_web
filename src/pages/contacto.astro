@@ -1,65 +1,301 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Contact from "../components/Contact.astro";
+import PageHero from "../components/PageHero.astro";
+
+const services = [
+  "Redes Wi-Fi enterprise",
+  "Cableado estructurado",
+  "Fibra óptica",
+  "Videovigilancia CCTV",
+  "Centrales telefónicas IP",
+  "Instalaciones eléctricas",
+  "Aires acondicionados",
+  "Venta de equipos",
+  "Desarrollo de software",
+  "Otro / no estoy seguro",
+];
 ---
 
 <Layout
-    title="Contacto | NETFIC SOLUTIONS"
-    description="Ponte en contacto con nosotros para transformar tus ideas en soluciones tecnológicas innovadoras."
+  title="Contacto — NetFic Solutions"
+  description="Solicitar cotización con visita técnica incluida. Le respondemos en menos de 24 horas hábiles."
 >
-    <!-- Hero Section -->
-    <div class="relative overflow-hidden pt-20 pb-16 flex items-center justify-center min-h-[50vh]">
-        <!-- Background Image with Overlay -->
-        <div class="absolute inset-0">
-            <img 
-                src="/bg-main.png" 
-                alt="NetFic Technology Background" 
-                class="w-full h-full object-cover"
+  <PageHero
+    eyebrow="04 · Contacto"
+    title="¿Un proyecto"
+    highlight="en mente?"
+    highlightColor="spark"
+    body="Cotización con visita técnica incluida. Le respondemos en menos de 24 horas hábiles. Sin formularios automáticos, sin respuestas genéricas."
+  />
+
+  <section class="container-craft py-16 md:py-24">
+    <div class="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-20 items-start">
+      <div id="contact-form" class="reveal" x-data="contactForm()">
+        <div class="mb-8">
+          <div class="eyebrow mb-3">Formulario de cotización</div>
+          <h2 class="display-l" style="font-size: clamp(1.625rem, 2.6vw, 2rem); color: var(--color-ink);">
+            Contanos qué necesitás.
+          </h2>
+        </div>
+
+        <div
+          x-show="formSuccess"
+          x-cloak
+          x-transition
+          class="mb-6 p-5 rounded-lg border"
+          style="background-color: color-mix(in oklch, var(--color-brand) 15%, transparent); border-color: var(--color-brand); color: var(--color-ink);"
+        >
+          <div class="font-display font-bold text-[1.0625rem] mb-1">¡Gracias!</div>
+          <div class="text-[0.95rem]" style="color: var(--color-ink-soft);">
+            Le respondemos en menos de 24 horas hábiles al correo o teléfono que indicaste.
+          </div>
+        </div>
+
+        <div
+          x-show="formError"
+          x-cloak
+          x-transition
+          class="mb-6 p-5 rounded-lg border"
+          style="background-color: color-mix(in oklch, var(--color-spark) 15%, transparent); border-color: var(--color-spark); color: var(--color-ink);"
+        >
+          <div class="font-display font-bold text-[1.0625rem] mb-1">Algo salió mal.</div>
+          <div class="text-[0.95rem]" style="color: var(--color-ink-soft);">
+            Probá de nuevo, o escribinos directo a <a href="mailto:info@netfic.com" class="underline">info@netfic.com</a>.
+          </div>
+        </div>
+
+        <form class="space-y-6" x-show="!formSuccess">
+          <div class="grid gap-6 md:grid-cols-2">
+            <label class="block">
+              <span class="block text-[0.78rem] font-semibold uppercase mb-2" style="letter-spacing: 0.12em; color: var(--color-ink-soft);">
+                Nombre
+              </span>
+              <input
+                type="text"
+                x-model="formData.name"
+                required
+                class="block w-full px-4 py-3.5 text-[0.95rem] rounded-lg border transition-colors duration-150"
+                style="background-color: var(--color-paper); border-color: var(--color-line); color: var(--color-ink);"
+                onfocus="this.style.borderColor='var(--color-spark)'"
+                onblur="this.style.borderColor='var(--color-line)'"
+                placeholder="¿Cómo te llamás?"
+              />
+            </label>
+            <label class="block">
+              <span class="block text-[0.78rem] font-semibold uppercase mb-2" style="letter-spacing: 0.12em; color: var(--color-ink-soft);">
+                Teléfono
+              </span>
+              <input
+                type="tel"
+                x-model="formData.phone"
+                class="block w-full px-4 py-3.5 text-[0.95rem] rounded-lg border transition-colors duration-150"
+                style="background-color: var(--color-paper); border-color: var(--color-line); color: var(--color-ink);"
+                onfocus="this.style.borderColor='var(--color-spark)'"
+                onblur="this.style.borderColor='var(--color-line)'"
+                placeholder="+506 ..."
+              />
+            </label>
+          </div>
+
+          <label class="block">
+            <span class="block text-[0.78rem] font-semibold uppercase mb-2" style="letter-spacing: 0.12em; color: var(--color-ink-soft);">
+              Email
+            </span>
+            <input
+              type="email"
+              x-model="formData.email"
+              required
+              class="block w-full px-4 py-3.5 text-[0.95rem] rounded-lg border transition-colors duration-150"
+              style="background-color: var(--color-paper); border-color: var(--color-line); color: var(--color-ink);"
+              onfocus="this.style.borderColor='var(--color-spark)'"
+              onblur="this.style.borderColor='var(--color-line)'"
+              placeholder="tu@email.com"
             />
-            <!-- Dark overlay for better text readability -->
-            <div class="absolute inset-0 bg-black/50"></div>
-        </div>
+          </label>
 
-        <div class="container relative mx-auto px-4 sm:px-6 lg:px-8 z-10">
-            <div class="text-center">
-                <!-- Badge -->
-                <div class="inline-flex items-center px-4 py-2 bg-blue-500/20 border border-blue-400/30 rounded-full text-blue-300 text-sm font-medium mb-6">
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                    </svg>
-                    Hablemos de tu Proyecto
-                </div>
+          <label class="block">
+            <span class="block text-[0.78rem] font-semibold uppercase mb-2" style="letter-spacing: 0.12em; color: var(--color-ink-soft);">
+              Servicio de interés
+            </span>
+            <select
+              x-model="formData.service"
+              class="block w-full px-4 py-3.5 text-[0.95rem] rounded-lg border transition-colors duration-150 appearance-none"
+              style="background-color: var(--color-paper); border-color: var(--color-line); color: var(--color-ink);"
+              onfocus="this.style.borderColor='var(--color-spark)'"
+              onblur="this.style.borderColor='var(--color-line)'"
+            >
+              <option value="">Seleccioná un servicio</option>
+              {services.map((s) => <option value={s}>{s}</option>)}
+            </select>
+          </label>
 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-                    <span class="text-white">Contacta con</span>
-                    <span class="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent"> NetFic</span>
-                </h1>
+          <label class="block">
+            <span class="block text-[0.78rem] font-semibold uppercase mb-2" style="letter-spacing: 0.12em; color: var(--color-ink-soft);">
+              Contanos qué necesitás
+            </span>
+            <textarea
+              x-model="formData.message"
+              required
+              rows="5"
+              class="block w-full px-4 py-3.5 text-[0.95rem] rounded-lg border transition-colors duration-150 resize-none"
+              style="background-color: var(--color-paper); border-color: var(--color-line); color: var(--color-ink);"
+              onfocus="this.style.borderColor='var(--color-spark)'"
+              onblur="this.style.borderColor='var(--color-line)'"
+              placeholder="Detalles del proyecto, ubicación, plazo aproximado, lo que tengas..."
+            ></textarea>
+          </label>
 
-                <p class="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8">
-                    ¿Tienes un proyecto en mente? Nuestro equipo de expertos está listo para 
-                    <span class="text-blue-400 font-semibold">transformar tus ideas</span> en 
-                    <span class="text-indigo-400 font-semibold">soluciones tecnológicas</span> innovadoras.
-                </p>
+          <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+            <p class="text-[0.8rem]" style="color: var(--color-mute);">
+              Te respondemos en menos de 24 horas hábiles.
+            </p>
+            <button
+              type="submit"
+              class="btn-primary"
+              x-on:click.prevent="submitForm"
+              x-bind:disabled="isSubmitting"
+              x-bind:style="isSubmitting ? 'opacity: 0.7; cursor: wait;' : ''"
+            >
+              <span x-show="!isSubmitting">Enviar mensaje</span>
+              <span x-show="isSubmitting" x-cloak class="flex items-center gap-2">
+                <svg class="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" opacity="0.25"></circle>
+                  <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.4 0 0 5.4 0 12h4z"></path>
+                </svg>
+                Enviando…
+              </span>
+              <svg x-show="!isSubmitting" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
 
-                <!-- Quick Stats -->
-                <div class="grid grid-cols-3 gap-6 max-w-md mx-auto">
-                    <div class="text-center">
-                        <div class="text-2xl font-bold text-blue-400">24h</div>
-                        <div class="text-sm text-gray-400">Respuesta</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-2xl font-bold text-indigo-400">100%</div>
-                        <div class="text-sm text-gray-400">Gratuito</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-2xl font-bold text-cyan-400">100%</div>
-                        <div class="text-sm text-gray-400">Confiabilidad</div>
-                    </div>
-                </div>
+      <aside class="reveal reveal-d1">
+        <div
+          class="rounded-2xl p-7 md:p-8 mb-6"
+          style="background-color: var(--color-ink); color: var(--color-paper);"
+        >
+          <div class="eyebrow mb-5" style="color: var(--color-brand); letter-spacing: 0.22em;">
+            Otras formas de contacto
+          </div>
+
+          <dl class="space-y-6">
+            <div>
+              <dt class="text-[0.7rem] uppercase font-bold mb-2" style="letter-spacing: 0.22em; color: rgba(250,250,247,0.5);">
+                Email
+              </dt>
+              <dd>
+                <a href="mailto:info@netfic.com" class="block text-[1.0625rem] font-semibold hover:underline" style="color: var(--color-paper);">
+                  info@netfic.com
+                </a>
+                <a href="mailto:soporte@netfic.com" class="block mt-1 text-[0.9rem]" style="color: rgba(250,250,247,0.65);">
+                  soporte@netfic.com
+                </a>
+              </dd>
             </div>
-        </div>
-    </div>
 
-    <!-- Contact Section -->
-    <Contact />
+            <div>
+              <dt class="text-[0.7rem] uppercase font-bold mb-2" style="letter-spacing: 0.22em; color: rgba(250,250,247,0.5);">
+                Teléfono
+              </dt>
+              <dd>
+                <a href="tel:+50685082921" class="block text-[1.0625rem] font-semibold hover:underline tabular-nums" style="color: var(--color-paper);">
+                  +506 8508 2921
+                </a>
+                <span class="block mt-1 text-[0.9rem]" style="color: rgba(250,250,247,0.65);">
+                  Lun a Vie · 9:00 — 18:00
+                </span>
+              </dd>
+            </div>
+
+            <div>
+              <dt class="text-[0.7rem] uppercase font-bold mb-2" style="letter-spacing: 0.22em; color: rgba(250,250,247,0.5);">
+                Ubicación
+              </dt>
+              <dd class="text-[1.0625rem]" style="color: var(--color-paper);">
+                San Ramón, Alajuela
+                <span class="block mt-1 text-[0.9rem]" style="color: rgba(250,250,247,0.65);">
+                  Costa Rica · GMT-6
+                </span>
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <div
+          class="rounded-2xl p-7 border"
+          style="background-color: var(--color-paper-2); border-color: var(--color-line);"
+        >
+          <div class="eyebrow mb-3">Cobertura</div>
+          <p class="text-[0.95rem] leading-relaxed" style="color: var(--color-ink-soft);">
+            Trabajamos en toda <strong style="color: var(--color-ink);">Costa Rica</strong>. Viajes y traslados se cotizan dentro del proyecto, sin sorpresas al final.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      if (window.__netficContactLoaded) return;
+      window.__netficContactLoaded = true;
+      const s = document.createElement("script");
+      s.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
+      document.head.appendChild(s);
+    })();
+
+    function contactForm() {
+      return {
+        formData: { name: "", email: "", phone: "", service: "", message: "" },
+        isSubmitting: false,
+        formSuccess: false,
+        formError: false,
+        async submitForm() {
+          this.isSubmitting = true;
+          this.formSuccess = false;
+          this.formError = false;
+          try {
+            if (typeof emailjs === "undefined") {
+              await new Promise((resolve) => {
+                const check = () => {
+                  if (typeof emailjs !== "undefined") resolve();
+                  else setTimeout(check, 100);
+                };
+                check();
+              });
+            }
+            const SERVICE_ID = "service_h3dqbeu";
+            const TEMPLATE_ID = "template_7grjxkf";
+            const PUBLIC_KEY = "LVq3js0LUNgcF7RfT";
+            const parts = this.formData.name.trim().split(" ");
+            const params = {
+              to_name: "NetFic Team",
+              first_name: parts[0] || this.formData.name,
+              last_name: parts.slice(1).join(" ") || "",
+              email: this.formData.email,
+              phone: this.formData.phone,
+              message: this.formData.message,
+              service: this.formData.service || "No especificado",
+            };
+            await emailjs.send(SERVICE_ID, TEMPLATE_ID, params, PUBLIC_KEY);
+            this.formSuccess = true;
+            this.formData = { name: "", email: "", phone: "", service: "", message: "" };
+          } catch (err) {
+            console.error("EmailJS error:", err);
+            this.formError = true;
+          } finally {
+            this.isSubmitting = false;
+            if (this.formSuccess || this.formError) {
+              setTimeout(() => {
+                document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });
+              }, 100);
+            }
+          }
+        },
+      };
+    }
+  </script>
 </Layout>

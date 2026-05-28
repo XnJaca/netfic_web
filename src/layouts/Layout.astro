@@ -1,47 +1,71 @@
 ---
 import "../styles/global.css";
-import Header from "../components/header.astro";
+import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-const { title, description } = Astro.props;
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "NetFic Solutions — Infraestructura tecnológica + desarrollo",
+  description = "Empresa de servicios tecnológicos en Costa Rica: redes, fibra óptica, CCTV, centrales telefónicas, eléctrico, A/C y desarrollo de software a medida.",
+} = Astro.props;
 ---
 
+<!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<meta
-			name="description"
-			content={description ||
-				"NetFic Solutions - Soluciones tecnológicas innovadoras"}
-		/>
-		<title>{title || "NETFIC SOLUTIONS"}</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<!-- AlpineJS -->
-		<script>
-			import Alpine from "alpinejs";
-			(window as any).Alpine = Alpine;
-			Alpine.start();
-		</script>
-	</head>
-	<body>
-		<div class="flex flex-col min-h-screen">
-			<Header />
-			<div class="flex-grow">
-				<slot />
-			</div>
-			<Footer />
-		</div>
-	</body>
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <meta name="theme-color" content="#78C643" />
+    <meta name="apple-mobile-web-app-title" content="NetFic" />
 
-	<style is:global>
-		html {
-			font-family: system-ui, sans-serif;
-			background-color: #f9fafb;
-			color: #111827;
-			scroll-behavior: smooth;
-		}
-	</style>
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+
+    <script>
+      import Alpine from "alpinejs";
+      (window as any).Alpine = Alpine;
+      Alpine.start();
+    </script>
+  </head>
+  <body class="bg-paper text-ink">
+    <div class="flex min-h-screen flex-col">
+      <Header />
+      <main class="flex-1">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          }
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
+      );
+
+      const init = () => {
+        document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+      };
+
+      init();
+      document.addEventListener("astro:after-swap", init);
+    </script>
+  </body>
 </html>
