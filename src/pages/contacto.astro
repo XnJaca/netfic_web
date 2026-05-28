@@ -239,14 +239,6 @@ const services = [
   </section>
 
   <script is:inline>
-    (function () {
-      if (window.__netficContactLoaded) return;
-      window.__netficContactLoaded = true;
-      const s = document.createElement("script");
-      s.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
-      document.head.appendChild(s);
-    })();
-
     function contactForm() {
       return {
         formData: { name: "", email: "", phone: "", service: "", message: "" },
@@ -258,33 +250,19 @@ const services = [
           this.formSuccess = false;
           this.formError = false;
           try {
-            if (typeof emailjs === "undefined") {
-              await new Promise((resolve) => {
-                const check = () => {
-                  if (typeof emailjs !== "undefined") resolve();
-                  else setTimeout(check, 100);
-                };
-                check();
-              });
+            const res = await fetch("/api/contact", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(this.formData),
+            });
+            if (!res.ok) {
+              const data = await res.json().catch(() => ({}));
+              throw new Error(data.error || "send_failed");
             }
-            const SERVICE_ID = "service_h3dqbeu";
-            const TEMPLATE_ID = "template_7grjxkf";
-            const PUBLIC_KEY = "LVq3js0LUNgcF7RfT";
-            const parts = this.formData.name.trim().split(" ");
-            const params = {
-              to_name: "NetFic Team",
-              first_name: parts[0] || this.formData.name,
-              last_name: parts.slice(1).join(" ") || "",
-              email: this.formData.email,
-              phone: this.formData.phone,
-              message: this.formData.message,
-              service: this.formData.service || "No especificado",
-            };
-            await emailjs.send(SERVICE_ID, TEMPLATE_ID, params, PUBLIC_KEY);
             this.formSuccess = true;
             this.formData = { name: "", email: "", phone: "", service: "", message: "" };
           } catch (err) {
-            console.error("EmailJS error:", err);
+            console.error("Contact form error:", err);
             this.formError = true;
           } finally {
             this.isSubmitting = false;
