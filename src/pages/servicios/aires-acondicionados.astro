@@ -1,14 +1,15 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ServicePage from "../../components/ServicePage.astro";
-import { services } from "../../data/services";
+import { services, serviceJsonLd } from "../../data/services";
 
 const service = services["aires-acondicionados"];
 ---
 
 <Layout
-  title={`${service.name} — NetFic Solutions`}
-  description={service.intro}
+  title={`${service.seoTitle} | NetFic Solutions`}
+  description={service.seoDescription}
+  schema={serviceJsonLd(service, Astro.site!)}
 >
   <ServicePage service={service} />
 </Layout>
