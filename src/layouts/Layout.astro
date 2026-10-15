@@ -12,6 +12,9 @@ const {
   title = "NetFic Solutions — Infraestructura tecnológica + desarrollo",
   description = "Empresa de servicios tecnológicos en Costa Rica: redes, fibra óptica, CCTV, centrales telefónicas, eléctrico, A/C y desarrollo de software a medida.",
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const ogImage = new URL("/banner_home.png", Astro.site).toString();
 ---
 
 <!doctype html>
@@ -31,6 +34,16 @@ const {
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="NetFic Solutions" />
+    <meta property="og:locale" content="es_CR" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <script>
       import Alpine from "alpinejs";
